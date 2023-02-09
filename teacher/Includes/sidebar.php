@@ -1,12 +1,21 @@
+<?php
+
+session_start();
+$con=mysqli_connect("localhost","root","","registration");    
+if($con===false){
+   die("ERROR: Could not connect.".mysqli_connect_error());
+}?>
+ 
+ 
  <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center bg-gradient-primary justify-content-center" href="index.php">
        
       </a>
       <hr class="sidebar-divider my-0">
       <li class="nav-item active">
-        <a class="nav-link" href="../teacher  .php">
+        <a class="nav-link" href="../teacher.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Back</span></a>
       </li> 
   
       <hr class="sidebar-divider">
@@ -22,11 +31,19 @@
         </a>
         <div id="collapseBootstrapcon" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Manage Attendance</h6>
+         
             <a class="collapse-item" href="takeAttendance.php">Take Attendance</a>
             <a class="collapse-item" href="viewAttendance.php">View Class Attendance</a>
-            <a class="collapse-item" href="viewStudentAttendance.php">View Student Attendance</a>
-            <a class="collapse-item" href="downloadRecord.php">Today's Report (xls)</a>
+            <!-- #################################### -->
+             <form action="Includes\pdf.php" method="POST">
+              <button type="submit" name="btn_pdf" >Today's Report </buttton>
+
+             </form>
+
+
+
+                <!-- #################################### -->
+            <!-- <a class="collapse-item" href="downloadRecord.php">Today's Report (xls)</a> -->
             <!-- <a class="collapse-item" href="addMemberToContLevel.php ">Add Member to Level</a> -->
           </div>
         </div>
@@ -86,5 +103,5 @@
         </a>
       </li> -->
       <hr class="sidebar-divider">
-      <div class="version" id="version-ruangadmin"></div>
+     
     </ul>

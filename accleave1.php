@@ -8,7 +8,7 @@ if($del)
 {
     mysqli_close($conn); // Close connection
     header("location:teacher_leave_status.php"); // redirects to all records page
-    exit;	
+    exit;	 
 }
 else
 {

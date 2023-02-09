@@ -1,5 +1,6 @@
 <?php 
 include 'connect.php';
+session_start();
 if(isset($_POST['login'])){
 
   $email=mysqli_real_escape_string($conn,$_POST['email']);
@@ -27,26 +28,26 @@ if($res->num_rows > 0)
         
       }
            
-      elseif($_SESSION['type']=='tec')
+      // elseif($_SESSION['type']=='tec' and $row['staus']=='1')
       
-      {
-        $status="SELECT * FROM `regteacher` WHERE 'status'=0";
-        if(($conn->query($status)))  
-        {
-          session_start();
-          $_SESSION['message']="Welcome";
-          $_SESSION['email']=$row['Email_id'];
-          header("location:subject_teacher.php");
-        }
-        else{
-          echo "alert('Something error')";
-        }
+      // {
+      //   $status="SELECT * FROM `regteacher` WHERE 'status'=0";
+      //   if(($conn->query($status)))  
+      //   {
+      //     session_start();
+      //     $_SESSION['message']="Welcome";
+      //     $_SESSION['email']=$row['Email_id'];
+      //     header("location:subject_teacher.php");
+      //   }
+      //   else{
+      //     echo "alert('Something error')";
+      //   }
         
-      }
-      elseif($_SESSION['type']=='teacher')
+      // }
+      elseif($_SESSION['type']=='tec' and $row['staus']=='1')
       
       {
-        $status="SELECT * FROM `regteacher` WHERE 'status'=0";
+        $status="SELECT * FROM `regteacher` WHERE 'status'=1";
         if(($conn->query($status)))  
         {
           session_start();
@@ -95,6 +96,38 @@ else
 <html>
 
 <head>
+  <style>
+    .error_form
+{
+top: 12px;
+color: rgb(216, 15, 15);
+    font-size: 15px;
+font-weight:bold;
+    font-family: Helvetica;
+}
+    </style>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+ 
+  $(document).on('click','#submit',function()
+  {  $("#captcha_message").hide();
+ var response = grecaptcha.getResponse();
+ if(response.length == 0)
+ {
+ $("#captcha_message").html("Please verify you are not a robot");
+               $("#captcha_message").show();
+ return false;
+ }
+ else{
+ $("#captcha_message").hide();
+ return true;
+ }
+  });
+ 
+ 
+</script>
+        </head>
     <title>loginform</title>
 
  
@@ -125,9 +158,13 @@ else
                         <p>
                             <label>Password<span>*</span></label>
                             <input type="password" name="password" id="password" placeholder="Password" autocomplete="off">
+                        </p> <div class="g-recaptcha" data-sitekey="6LewyAMkAAAAACWIhN9wXtI9vfC5IXznKK0JM3gh"></div>
+                        <p>
+                        <span class="error_form" id="captcha_message"></span>
                         </p>
                         <p>
-                        <input type="submit"  value="login" name="login" class="btn">   
+                        <span class="error_form" id="captcha_message"></span>
+                        <input type="submit" id="submit" value="login" name="login" class="btn">   
                         </p>
                         <p>
                             <a href="forget.php">Forget password?</a>

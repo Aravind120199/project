@@ -52,7 +52,7 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="addmrk.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">  mark</span>
           </a>
@@ -75,7 +75,12 @@ $var = $_SESSION['email'];
             <span class="links_name">Attendance</span>
           </a>
         </li>
-     
+        <li>
+          <a href="view_takeAttendance.php">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">Edit Attendance</span>
+          </a>
+        </li>
         <li>
           <a href="cource_material.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
@@ -190,8 +195,6 @@ $var = $_SESSION['email'];
    $p = $row['phone'];
   
 ?>
-  
-
         <div class="col-xl-8">
             <!-- Account details card-->
             <div class="card mb-4">
@@ -210,9 +213,6 @@ $var = $_SESSION['email'];
                                 <label class="small mb-1" for="inputusername">Lastname</label>
                                 <input class="form-control" id="fname" type="text" readonly="readonly"  value=<?php  echo $l_name;?>>
                             </div>
-                          
-                        
-                          
                         <!-- Form Group (email address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputphone">phone number</label>
@@ -225,24 +225,12 @@ $var = $_SESSION['email'];
                                 <label class="small mb-1" for="inputemail">email</label>
                                 <input class="form-control" id="email" type="email"  readonly="readonly"  value=<?php  echo $var;?>>
                             </div>
-                            
-                            
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputgender">Qualification</label>
                                 <input class="form-control" id="inputgnder" type="text" name="gender"  readonly="readonly"  value=<?php  echo $q;?>>
                             </div>
-                            
-                           
-                          
-					
-
                     </form>
                     </div>
-                  
-
-
-
-               
             </div>
         </div>
         <a href="edit_bio.php?em=<?php echo $var;?>"><button>Update</button></a>

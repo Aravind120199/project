@@ -314,12 +314,11 @@ $(document).ready(function(){
 
 <?php  
 include("connect.php");  
-$view_users_query="select * from regteacher where batch='plus_one'";//select query for viewing users.  
+$view_users_query="select * from userlog inner join regteacher on regteacher.id=userlog.fid  where regteacher.batch='plus_one'";//select query for viewing users.  
 $run=mysqli_query($conn,$view_users_query);//here run the sql query.  
 
 while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.  
 {  
- 
 $user_tname=$row['Name'];  
 $user_tlname=$row['Lastname'];
 $user_batc=$row['batch'];  
@@ -333,31 +332,20 @@ $user_nphone=$row['phone'];
 <tr>  
 <!--here showing results in the table -->  
 
-<td><?php echo $user_tname;  ?></td>  
-<td><?php echo $user_tlname;  ?></td>  
-<td><?php echo $user_batc;  ?></td> 
-<td><?php echo $user_sub;  ?></td> 
-<td><?php echo $user_email;  ?></td> 
-<td><?php echo $user_nphone;  ?></td> 
+<td><?php echo $user_tname;?></td>  
+<td><?php echo $user_tlname;?></td>  
+<td><?php echo $user_batc;?></td> 
+<td><?php echo $user_sub;?></td> 
+<td><?php echo $user_email;?></td> 
+<td><?php echo $user_nphone;?></td> 
 
-
-<td> <?php if($row['status']==1){
-echo '<p><a class="btna" href="status.php?id='.$row['id'].'&status=0">DEACTIVATE</a></p>';
-}if($row['status']==0){
-echo '<p><a class="bt" href="status.php?id='.$row['id'].'&status=1">ACTIVATE</a></p>';
+<td> <?php if($row['staus']=='1'){
+echo '<p><a class="btna" href="status.php?id='.$row['id'].'">DEACTIVATE</a></p>';
+}if($row['staus']=='0'){
+echo '<p><a class="bt" href="statuss.php?id='.$row['id'].'">ACTIVATE</a></p>';
 } ?></td>
-
-
-
 <!--<td><a href="delete.php?id=<?php echo $rows['id'];?>"><button style="color:white; background-color:red; width:80px height:30px;">Delete</button></a></td>
 <td>-->
-
-
-
-
-
-
-
 </td>
 </tr>  
 

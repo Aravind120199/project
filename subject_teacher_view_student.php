@@ -1,9 +1,4 @@
-
-
-
-      
-      
-      <?php
+        <?php
 include('session.php');
 include('connect.php');
 if(!isset($_SESSION["email"])) 
@@ -311,8 +306,7 @@ $(document).ready(function(){
 
           <th>First name</th>
           <th>lastname</th>
-          <th>Batch</th>
-          <th>Gender</th>
+          <th>Batch</th>  
           <th>Student email id</th>
           
 
@@ -340,7 +334,7 @@ $(document).ready(function(){
             <td><?php echo $user_name;  ?></td>  
             <td><?php echo $user_lname;  ?></td>  
             <td><?php echo $user_batch;  ?></td> 
-            <td><?php echo $user_gender;  ?></td> 
+         
             <td><?php echo $user_Email_id;  ?></td> 
 
 

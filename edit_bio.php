@@ -27,6 +27,17 @@ if(isset($_POST["submit"]))
 
 
 <!-- <form class="form-horizontal" method="POST" action="edit.php" onsubmit="alert('Update successfully')" id="FORM_ID"> -->
+<?php
+include('session.php');
+include('connect.php');
+if(!isset($_SESSION["email"])) 
+{
+    header("Location:login.php");
+}
+$var = $_SESSION['email'];
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
@@ -52,7 +63,7 @@ if(isset($_POST["submit"]))
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="viewstudent.php">
             <i class='bx bx-box' ></i>
             <span class="links_name">Students</span>
           </a>
@@ -64,26 +75,43 @@ if(isset($_POST["submit"]))
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="subjects.php">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name"> update mark</span>
+            <span class="links_name">Subject</span>
           </a>
         </li>
         <li>
-          <a href="tecleave.php">
+          <a href="addmrk.php">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">  mark</span>
+          </a>
+        </li>
+        <li>
+          <a href="teacher_leave.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name"> leave</span>
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="tec_timetable.php">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name"> my leave</span>
+            <span class="links_name">Time table</span>
           </a>
         </li>
-     
         <li>
-          <a href="">
+          <a href="teacher/takeAttendance.php">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">Attendance</span>
+          </a>
+        </li>
+        <li>
+          <a href="view_takeAttendance.php">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">Edit Attendance</span>
+          </a>
+        </li>
+        <li>
+          <a href="cource_material.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">cource Material</span>
           </a>

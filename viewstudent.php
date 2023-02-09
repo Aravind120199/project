@@ -28,7 +28,7 @@ $var = $_SESSION['email'];
     </div>
       <ul class="nav-links">
         <li>
-          <a href="" class="active">
+          <a href="teacher.php" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Home</span>
           </a>
@@ -52,7 +52,7 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="addmrk.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">  mark</span>
           </a>
@@ -70,7 +70,7 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="teacher/takeAttendance.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">Attendece</span>
           </a>
@@ -323,9 +323,8 @@ $(document).ready(function(){
           <th>First name</th>
           <th>lastname</th>
           <th>Batch</th>
-          <th>Gender</th>
           <th>Student email id</th>
-          
+
 
   </tr>  
   </thead> 
@@ -339,7 +338,7 @@ $(document).ready(function(){
             $user_name=$row[1];  
             $user_lname=$row[2];
             $user_batch=$row[9];  
-            $user_gender=$row[10]; 
+           
             $user_Email_id=$row[11];   
 
   
@@ -351,7 +350,7 @@ $(document).ready(function(){
             <td><?php echo $user_name;  ?></td>  
             <td><?php echo $user_lname;  ?></td>  
             <td><?php echo $user_batch;  ?></td> 
-            <td><?php echo $user_gender;  ?></td> 
+           
             <td><?php echo $user_Email_id;  ?></td> 
 
 
@@ -379,10 +378,9 @@ $(document).ready(function(){
           <th>First name</th>
           <th>lastname</th>
           <th>Batch</th>
-          <th>Gender</th>
+       
           <th>Student email id</th>
-          
-
+       
   </tr>  
   </thead> 
   <?php  
@@ -395,7 +393,7 @@ $(document).ready(function(){
             $user_name=$row[1];  
             $user_lname=$row[2];
             $user_batch=$row[9];  
-            $user_gender=$row[10]; 
+        
             $user_Email_id=$row[11];   
 
   
@@ -407,9 +405,8 @@ $(document).ready(function(){
             <td><?php echo $user_name;  ?></td>  
             <td><?php echo $user_lname;  ?></td>  
             <td><?php echo $user_batch;  ?></td> 
-            <td><?php echo $user_gender;  ?></td> 
+       
             <td><?php echo $user_Email_id;  ?></td> 
-
 
 
 

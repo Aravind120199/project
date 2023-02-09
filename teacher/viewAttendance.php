@@ -81,17 +81,19 @@ include 'Includes/dbcon.php';
                   <table class="table align-items-center table-flush table-hover" id="dataTableHover">
                     <thead class="thead-light">
                       <tr>
-                        <th>#</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Other Name</th>
+                        <th>Email</th>
+                        <th>Batch</th>
+                        <th>status</th>
+                        <!-- <th>Other Name</th>
                         <th>Admission No</th>
                         <th>Class</th>
                         <th>Class Arm</th>
                         <th>Session</th>
                         <th>Term</th>
-                        <th>Status</th>
-                        <th>Date</th>
+                        <th>Status</th> -->
+                        <!-- <th>Date</th> -->
                       </tr>
                     </thead>
                    
@@ -103,39 +105,71 @@ include 'Includes/dbcon.php';
 
                       $dateTaken =  $_POST['dateTaken'];
 
-                      $query = "SELECT tblattendance.Id,tblattendance.status,tblattendance.dateTimeTaken,tblclass.className,
-                      tblclassarms.classArmName,tblsessionterm.sessionName,tblsessionterm.termId,tblterm.termName,
-                      tblstudents.firstName,tblstudents.lastName,tblstudents.otherName,tblstudents.admissionNumber
-                      FROM tblattendance
-                      INNER JOIN tblclass ON tblclass.Id = tblattendance.classId
-                      INNER JOIN tblclassarms ON tblclassarms.Id = tblattendance.classArmId
-                      INNER JOIN tblsessionterm ON tblsessionterm.Id = tblattendance.sessionTermId
-                      INNER JOIN tblterm ON tblterm.Id = tblsessionterm.termId
-                      INNER JOIN tblstudents ON tblstudents.admissionNumber = tblattendance.admissionNo
-                      where tblattendance.dateTimeTaken = '$dateTaken' and tblattendance.classId = '$_SESSION[classId]' and tblattendance.classArmId = '$_SESSION[classArmId]'";
+                    //   $query = "SELECT tblattendance.Id,tblattendance.status,tblattendance.dateTimeTaken,tblclass.className,
+                    //   tblclassarms.classArmName,tblsessionterm.sessionName,tblsessionterm.termId,tblterm.termName,
+                    //   tblstudents.firstName,tblstudents.lastName,tblstudents.otherName,tblstudents.admissionNumber
+                    //   FROM tblattendance
+                    //   INNER JOIN tblclass ON tblclass.Id = tblattendance.classId
+                    //   INNER JOIN tblclassarms ON tblclassarms.Id = tblattendance.classArmId
+                    //   INNER JOIN tblsessionterm ON tblsessionterm.Id = tblattendance.sessionTermId
+                    //   INNER JOIN tblterm ON tblterm.Id = tblsessionterm.termId
+                    //   INNER JOIN tblstudents ON tblstudents.admissionNumber = tblattendance.admissionNo
+                    //   where tblattendance.dateTimeTaken = '$dateTaken' and tblattendance.classId = '$_SESSION[classId]' and tblattendance.classArmId = '$_SESSION[classArmId]'";
+                    //   $rs = $conn->query($query);
+                    //   $num = $rs->num_rows;
+                    //   $sn=0;
+                    //   $status="";
+                    //   if($num > 0)
+                    //   { 
+                    //     while ($rows = $rs->fetch_assoc())
+                    //       {
+                    //           if($rows['status'] == '1'){$status = "Present"; $colour="#00FF00";}else{$status = "Absent";$colour="#FF0000";}
+                    //          $sn = $sn + 1;
+                    //         echo"
+                    //           <tr>
+                    //             <td>".$sn."</td>
+                    //              <td>".$rows['firstName']."</td>
+                    //             <td>".$rows['lastName']."</td>
+                    //             <td>".$rows['otherName']."</td>
+                    //             <td>".$rows['admissionNumber']."</td>
+                    //             <td>".$rows['className']."</td>
+                    //             <td>".$rows['classArmName']."</td>
+                    //             <td>".$rows['sessionName']."</td>
+                    //             <td>".$rows['termName']."</td>
+                    //             <td style='background-color:".$colour."'>".$status."</td>
+                    //             <td>".$rows['dateTimeTaken']."</td>
+                    //           </tr>";
+                    //       }
+                    //   }
+                    //   else
+                    //   {
+                    //        echo   
+                    //        "<div class='alert alert-danger' role='alert'>
+                    //         No Record Found!
+                    //         </div>";
+                    //   }
+                    // }
+
+
+
+                      /*Next Code  */
+
+                      $query = "SELECT `firstname`, `lastname`, `email`,`batch`,`status`  FROM `attendancetable` WHERE `dateTimeTaken` = '$dateTaken'";
                       $rs = $conn->query($query);
                       $num = $rs->num_rows;
-                      $sn=0;
-                      $status="";
                       if($num > 0)
                       { 
                         while ($rows = $rs->fetch_assoc())
                           {
-                              if($rows['status'] == '1'){$status = "Present"; $colour="#00FF00";}else{$status = "Absent";$colour="#FF0000";}
-                             $sn = $sn + 1;
+                             
                             echo"
                               <tr>
-                                <td>".$sn."</td>
-                                 <td>".$rows['firstName']."</td>
-                                <td>".$rows['lastName']."</td>
-                                <td>".$rows['otherName']."</td>
-                                <td>".$rows['admissionNumber']."</td>
-                                <td>".$rows['className']."</td>
-                                <td>".$rows['classArmName']."</td>
-                                <td>".$rows['sessionName']."</td>
-                                <td>".$rows['termName']."</td>
-                                <td style='background-color:".$colour."'>".$status."</td>
-                                <td>".$rows['dateTimeTaken']."</td>
+                               
+                                <td>".$rows['firstname']."</td>
+                                <td>".$rows['lastname']."</td>
+                                <td>".$rows['email']."</td>
+                                <td>".$rows['batch']."</td>
+                                <td>".$rows['status']."</td>
                               </tr>";
                           }
                       }
@@ -146,6 +180,9 @@ include 'Includes/dbcon.php';
                             No Record Found!
                             </div>";
                       }
+                    
+
+
                     }
                       ?>
                     </tbody>

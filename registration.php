@@ -30,7 +30,8 @@ $sql2=mysqli_query($conn,"SELECT ID from reguser where Name='$name' and Lastname
                         {
                                 $value=$row['ID'];
                                 $result2=mysqli_query($conn,"INSERT INTO `userlog`(`Email_id`, `Password`,`fid`,`role`) VALUES ('$Emailid','$Password','$value','student')");
-                                if($result2==true)
+                                $result3=mysqli_query($conn,"INSERT INTO `fees`(`id`, `name`,`Lastname`,`batch`, `email`, `status`) VALUES ('DEFAULT','$name','$lastname', '$batch','$Emailid','pending')");
+                                if($result2==true && $result3==true)
                                 {   
                                     header("Location:login.php"); 
                                 } 

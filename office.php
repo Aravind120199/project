@@ -29,9 +29,15 @@ include('connect.php');
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="studentsfees.php">
             <i class='bx bx-box' ></i>
-            <span class="links_name">Students fee</span>
+            <span class="links_name">+1 students</span>
+          </a>
+        </li>
+        <li>
+          <a href="plustwofees.php">
+            <i class='bx bx-box' ></i>
+            <span class="links_name">+2 students</span>
           </a>
         </li>
         <li>
@@ -145,7 +151,6 @@ include('connect.php');
 
 
         <?php
-   
    $sql = "SELECT * FROM `reguser` WHERE `Email_id`= '$var'";
    $data = mysqli_query($conn, $sql);
    $row = mysqli_fetch_array($data);

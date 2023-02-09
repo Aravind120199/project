@@ -215,7 +215,6 @@ include('connect.php');
        
     </select>  <br>
     <br>
-    
       <label for="sub" style="color:black">subject<br>
       <select name="sub" id="subj" > 
       <option value = "physics" >select</option>  
@@ -223,18 +222,14 @@ include('connect.php');
       <option value = "chemistry" > Chemistry </option>  
       <option value = "biology" > Biology </option>  
       <option value = "maths" > maths</option>  
-    
 </div>
   </select>
    <br>
     </div>
-     
     <div>
-    <input type="password" name="pass" placeholder="Password" id ="passw" required>
-              
+    <input type="password" name="pass" placeholder="Password" id ="passw" required>        
     <button type ="submit"  name="save"   class="btn2" >register</button>
 </div>
-   
    </form>
 
    <!-- <script src="./bootstrap-validate.js"></script> -->
@@ -274,21 +269,14 @@ if(isset($_POST["save"]))
     $batch = $_POST['batch'];
     $exp = $_POST['exp'];
     $sub = $_POST['sub'];
-
     $email = $_POST['email_id'];
     $phone = $_POST['phone'];
     $Password = $_POST['pass'];
   
 
   $sql ="INSERT INTO `regteacher`( `Name`, `Lastname`, `Date`, `Address`, `quali`, `batch`, `exp`, `sub`, `role`, `email_id`, `phone`, `Pass`) VALUES ('$name','$lastname','$date','$addrss','$quli','$batch','$exp','$sub','tec','$email','$phone','$Password')";
-
- 
-    
     $result =mysqli_query($conn,$sql);
-
-     
-   
-    $result =mysqli_query($conn,$sql);
+    //$result =mysqli_query($conn,$sql);
     $sql2=mysqli_query($conn,"SELECT id from regteacher where Name='$name' and Lastname = '$lastname' and email_id='$email'") ;
                         while ($row = mysqli_fetch_array($sql2)) 
                         {

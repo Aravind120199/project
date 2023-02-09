@@ -419,14 +419,14 @@ $(document).ready(function(){
                         <div class="col-xl-6">
                         <label class="form-control-label">Select Student<span class="text-danger ml-2">*</span></label>
                         <?php
-                        $qry= "SELECT * FROM tblstudents where classId = '$_SESSION[classId]' and classArmId = '$_SESSION[classArmId]' ORDER BY firstName ASC";
+                        $qry= "SELECT * FROM `attendancetable`";
                         $result = $conn->query($qry);
                         $num = $result->num_rows;		
                         if ($num > 0){
-                          echo ' <select required name="admissionNumber" class="form-control mb-3">';
+                          echo ' <select required name="id" class="form-control mb-3">';
                           echo'<option value="">--Select Student--</option>';
                           while ($rows = $result->fetch_assoc()){
-                          echo'<option value="'.$rows['admissionNumber'].'" >'.$rows['firstName'].' '.$rows['lastName'].'</option>';
+                          echo'<option value="'.$rows['id'].'" >'.$rows['firstname'].' '.$rows['lastname'].'</option>';
                               }
                                   echo '</select>';
                               }

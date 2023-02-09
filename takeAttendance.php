@@ -5,6 +5,7 @@ error_reporting(0);
 include('session.php');
 include('connect.php');
 
+
     $query = "SELECT tblclass.className,tblclassarms.classArmName 
     FROM tblclassteacher
     INNER JOIN tblclass ON tblclass.Id = tblclassteacher.classId
@@ -128,6 +129,11 @@ if(isset($_POST['save'])){
 </script>
    </head>
 <body>
+
+
+
+
+
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-m-plus-plus'></i>

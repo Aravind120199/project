@@ -47,7 +47,7 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="vmark.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">mark</span>
           </a>
@@ -71,6 +71,13 @@ $var = $_SESSION['email'];
           </a>
         </li>
         
+         
+        <li>
+          <a href="payfees.php">
+            <i class='bx bx-user' ></i>
+            <span class="links_name">Fees</span>
+          </a>
+        </li>
         <li>
           <a href="#">
             <i class='bx bx-user' ></i>
