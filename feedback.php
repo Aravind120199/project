@@ -1,3 +1,15 @@
+<?php
+include('session.php');
+include('connect.php');
+if(!isset($_SESSION["email"])) 
+{
+    header("Location:login.php");
+}
+$var = $_SESSION['email'];
+?>
+
+
+
 <!DOCTYPE html>    
 <html>    
 <head>    
@@ -75,15 +87,26 @@ input[type=submit]:hover {
 
 <h2>FEED BACK FORM</h2>    
 <div class="container">    
-  <form>  
-
+  
+  <?php
+   
+   $sql = mysqli_query($conn,"SELECT * FROM `reguser` WHERE `Email_id`= '$var'");
+   // $data = mysqli_query($conn, $sql);
+   while($row = mysqli_fetch_array($sql))
+   {
+   $name = $row['Name'];
+   $l_name = $row['Lastname'];
+   $email = $row['Email_id'];
+   $batch =$row['batch'];
+  
+?>
   
     <div class="row">    
       <div class="col-25">    
         <label for="fname">First Name</label>    
       </div>    
       <div class="col-75">    
-        <input type="text" id="name" name="name" placeholder="Your name.." required>    
+        <input type="text" id="name" name="name" placeholder="Your name.." value="<?php echo $name ?>">    
       </div>    
     </div>    
     <div class="row">    
@@ -91,7 +114,7 @@ input[type=submit]:hover {
         <label for="lname">Last Name</label>    
       </div>    
       <div class="col-75">    
-        <input type="text" id="lastname" name="lastname" placeholder="Your last name.." required>    
+        <input type="text" id="lastname" name="lastname" placeholder="Your last name.." value="<?php echo $l_name ?>">    
       </div>    
     </div>    
     <div class="row">    
@@ -99,7 +122,7 @@ input[type=submit]:hover {
           <label for="email">Mail Id</label>    
         </div>    
         <div class="col-75">    
-          <input type="email" id="email" name="email" placeholder="Your mail id.." required>    
+          <input type="email" id="email" name="email" placeholder="Your mail id.." value="<?php echo $email ?>">    
         </div>    
       </div>  
       <div class="row">    
@@ -107,7 +130,7 @@ input[type=submit]:hover {
           <label for="email">Batch</label>    
         </div>    
         <div class="col-75">    
-          <input type="text" id="batch" name="batch" placeholder="Batch" required>    
+          <input type="text" id="batch" name="batch" placeholder="Batch" value="<?php echo $batch ?>">    
         </div>    
       </div>    
    
@@ -122,8 +145,10 @@ input[type=submit]:hover {
     <div class="row">    
     <button type ="submit"  name="save"   class="btn2" >submit</button>
     </div>    
-  </form>   
-</form> 
+  
+</form> <?php
+   }
+?>
 </div>    
     
 </body>    

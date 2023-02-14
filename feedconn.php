@@ -18,6 +18,10 @@ if (isset($_POST["save"]))
    
     $sql="INSERT INTO `feedback`( `name`, `lastname`, `batch`, `email`, `feedback`)   VALUES ('$m','$s','$d','$g','$n')";
     $data = mysqli_query($conn, $sql);
+    if($data)
+    {
+      header("Location:feedback.php");
+    }
  
     }
   ?>

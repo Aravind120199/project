@@ -205,7 +205,7 @@ $var = $_SESSION['email'];
                           
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputusername">Lastname</label>
-                                <input class="form-control" id="fname" type="text" readonly="readonly"  value=<?php echo $l_name  ?>>
+                                <input class="form-control" id="fname" type="text" readonly="readonly"  value="<?php echo $l_name  ?>">
                             </div>
                           
                         

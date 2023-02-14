@@ -325,11 +325,11 @@ $(document).ready(function(){
 <?php  
 include("connect.php");  
 $view_users_query="SELECT * FROM `leave` where user='student'";//select query for viewing users.  
-$run=mysqli_query($conn,$view_users_query);//here run the sql query.  
+$run=mysqli_query($conn,$view_users_query);//here run the squdentl query.  
 
 while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.  
 {  
-  $user_name=$row['name'];  
+$user_name=$row['name'];  
 $user_tname=$row['type'];  
 $user_tlname=$row['descr'];
 $fr = $row['fromdate'];
