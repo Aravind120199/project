@@ -9,7 +9,7 @@
 </head>
 <body>
  
-<form class="form-horizontal" method="POST" action="registration.php" onsubmit="alert('register successfully')" id="FORM_ID">
+<form class="form-horizontal" method="POST" action="registration.php" id="FORM_ID">
 <div class="wrapper login">
         <div class="container">
         <link rel="stylesheet" href="register.css">
@@ -43,50 +43,6 @@
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
     rel="Stylesheet" type="text/css" />
 
-    
-<script type="text/javascript">
-    $(function () {
-        $("#txtDate").datepicker({
-            changeMonth: true,
-            changeYear: true,
-            showOn: 'button',
-            buttonImageOnly: true,
-            buttonImage: 'images/calendar.gif',
-            dateFormat: 'dd/mm/yy',
-            yearRange: '1900:+0',
-            onSelect: function (dateString, txtDate) {
-                ValidateDOB(dateString);
-            }
-        });
-    });
-    function ValidateDOB(dateString) {
-        var lblError = $("#lblError");
-        var parts = dateString.split("/");
-        var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
-        var dtCurrent = new Date();
-        lblError.html("Eligibility 18 years ONLY.")
-        if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
-            return false;
-        }
- 
-        if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
- 
-            //CD: 11/06/2018 and DB: 15/07/2000. Will turned 18 on 15/07/2018.
-            if (dtCurrent.getMonth() < dtDOB.getMonth()) {
-                return false;
-            }
-            if (dtCurrent.getMonth() == dtDOB.getMonth()) {
-                //CD: 11/06/2018 and DB: 15/06/2000. Will turned 18 on 15/06/2018.
-                if (dtCurrent.getDate() < dtDOB.getDate()) {
-                    return false;
-                }
-            }
-        }
-        lblError.html("");
-        return true;
-    }
-</script>
- 
 
 </div>
 <br>
@@ -112,7 +68,7 @@
          
 
                <div>
-    <button type ="submit"  name="save"   class="btn2" >register</button>
+    <input type ="submit"  value="Regiser" name="save"   class="btn2"  id="btn-register">
   
     </div></form>
 
@@ -133,6 +89,55 @@
        bootstrapValidate('#cpass', 'matches:#pass:incorrect password')
        
     </script>
+
+    
+    
+<script type="text/javascript">
+    $(function () {
+        $("#txtDate").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            showOn: 'button',
+            buttonImageOnly: true,
+            buttonImage: 'images/calendar.gif',
+            dateFormat: 'dd/mm/yy',
+            yearRange: '1900:+0',
+            onSelect: function (dateString, txtDate) {
+                ValidateDOB(dateString);
+            }
+        });
+    });
+    function ValidateDOB(dateString) {
+        var lblError = $("#lblError");
+        var parts = dateString.split("/");
+        var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
+        var dtCurrent = new Date();
+        lblError.html("Eligibility 18 years ONLY.")
+        if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
+            document.getElementById('btn-register').disabled=true;
+            return false;
+
+        }
+ 
+        if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
+ 
+            //CD: 11/06/2018 and DB: 15/07/2000. Will turned 18 on 15/07/2018.
+            if (dtCurrent.getMonth() < dtDOB.getMonth()) {
+                return false;
+            }
+            if (dtCurrent.getMonth() == dtDOB.getMonth()) {
+                //CD: 11/06/2018 and DB: 15/06/2000. Will turned 18 on 15/06/2018.
+                if (dtCurrent.getDate() < dtDOB.getDate()) {
+                    return false;
+                }
+            }
+        }
+        lblError.html("");
+        document.getElementById('btn-register').disabled=false;
+        return true;
+    }
+</script>
+ 
 </body>
 </html>
 

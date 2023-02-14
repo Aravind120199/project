@@ -59,12 +59,7 @@ include('connect.php');
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">teacher leave</span>
           </a>
-        </li>
-        <li>
-          <a href="officefee.php">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Office</span>
-          </a>
+       
         </li>
         <li>
           <a href="timetable.php">
@@ -73,12 +68,7 @@ include('connect.php');
           </a>
         </li>
         
-        <li>
-          <a href="#">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Settings</span>
-          </a>
-        </li>
+       
         <li class="">
           <a href="logout.php">
             <i class='bx bx-log-out'></i>
@@ -106,14 +96,6 @@ if (isset($_POST["submit"]))
     $batch=$_POST['batch'];
     $subject=$_POST['subject'];
     $teacher=$_POST['teacher'];
-  
-   
-
-
-  
-   
-    
-     
       mysqli_query($conn, "INSERT INTO `subject`( `batch`, `subject`, `teacher`) VALUES ('$batch','$subject','$teacher')");
  
     }
@@ -131,7 +113,7 @@ if (isset($_POST["submit"]))
     <select name="batch" id="batch" name="batch" required>
     <option value="sel">Select Batch</option>
   <option value="Plus one">Plus one</option>
-  <option value="Plus two">Plus Two</option>
+  <option value="Plus two">Plus two</option>
 
   
 
@@ -142,13 +124,33 @@ if (isset($_POST["submit"]))
     <fieldset>
      <input placeholder="subject" type="text"  name="subject"id="subject" required>
      </fieldset>
-     <fieldset>
-    <input placeholder="teacher" type="text"  name="teacher"id="teacher" required>
+     <!-- <fieldset>
+    <input placeholder="teacher" type="text"  name="teacher"id="teacher" required> -->
     
+    <fieldset>
+     
+    <select  id="teacher" name="teacher" required>
+    <option value="sel">select teacher</option>
+    <?php 
+      $teach = "SELECT `Name`, `Lastname` FROM `regteacher`";
+      $rest= $conn->query($teach);
+      
+      if ($rest->num_rows > 0) {
+        // output data of each row
+        while($terow = $rest->fetch_assoc()) {
+         
+        
+      ?>
+    <option value="<?php echo $terow["Name"]. " " . $terow["Lastname"]?>"><?php echo $terow["Name"]. " " . $terow["Lastname"]?></option>
+    <?php
+  }
+  }
+  ?>
+    </select> 
+    
+ </fieldset>
 
-    </fieldset>
-    
-   <fieldset>
+<fieldset>
       <button name="submit" type="submit" id="submit" name="submit" onsubmit="alert('register successfully')"data-submit="...Sending">Submit</button>
     </fieldset>
   </form>

@@ -164,10 +164,53 @@ if (isset($_POST["submit"]))
     </div>
   
     <form method="POST" onsubmit="alert(' successfully applied')">
-    
+<!--     
     <label><b>Enter your name</b></label>
-    <input  type="text" class="form-control" name="name" id="name" placeholder="enter your name"></input>
-      <label><b>Select Leave Type :</b></label>
+    <input  type="text" class="form-control" name="name" id="name" placeholder="enter your name"></input> -->
+
+
+    <?php
+   
+   $sql = "SELECT * FROM `reguser` WHERE `email_id`= '$var'";
+   $data = mysqli_query($conn, $sql);
+   $row = mysqli_fetch_array($data);
+   $name = $row['Name'];
+   $l_name = $row['Lastname'];
+   $q = $row['batch'];
+   $p = $row['Email_id'];
+  
+?>
+
+<div class="mb-3">
+                            <label class="small mb-1" for="inputUsername">First name</label>
+                            <input class="form-control" id="Name" type="text" readonly="readonly" value="<?php  echo $name;?> <?php  echo $l_name;?>">
+                        </div>
+                        
+                      
+                           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <label><b>Select Reason :</b></label>
       <!-- error message if type of absence isn't selected -->
 <!--     
       <div class="form-check">

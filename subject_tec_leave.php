@@ -26,8 +26,8 @@ if (isset($_POST["submit"]))
      $lid = $row['id'];
     }
      $value='teacher';
-      mysqli_query($conn, "INSERT INTO `leave`(`sid`,`name`,`type`,`descr`,`fromdate`,`todate`,`user`)
-     VALUES ('$lid','$name','$type','$des','$fromdate','$todate','$value')");
+      mysqli_query($conn, "INSERT INTO `leave`(`name`,`type`,`descr`,`fromdate`,`todate`,`user`)
+     VALUES ('$name','$type','$des','$fromdate','$todate','$value')");
  
     }
   ?>
@@ -149,7 +149,7 @@ if (isset($_POST["submit"]))
             <button id="back" onclick="window.location.href='subject_teacher.php';">back</button>
            <br>
            <br>
-           <button id="back" onclick="window.location.href='subject_tec_lev_history.php';">MY  Leave History</button>
+           <button id="back" onclick="window.location.href='myleave_history.php';">MY  Leave History</button>
             </ul>
 
       
@@ -176,10 +176,31 @@ if (isset($_POST["submit"]))
     //  $p = $row['phone'];
     
   ?>
+
+
+
+
+
+<?php
+   
+   $sql = "SELECT * FROM `regteacher` WHERE `email_id`= '$var'";
+   $data = mysqli_query($conn, $sql);
+   $row = mysqli_fetch_array($data);
+   $name = $row['Name'];
+   $l_name = $row['Lastname'];
+   $q = $row['quali'];
+   $p = $row['phone'];
+  
+?>
+
+<div class="mb-3">
+                            <label class="small mb-1" for="inputUsername">First name</label>
+                            <input class="form-control" id="name"  name="name" type="text" readonly="readonly" value="<?php  echo $name;?>">
+                        </div>
     
-    <input class="form-control" name="name" id="name"  value=""></input>
+    <!-- <input class="form-control" name="name" id="name"  value=""></input> -->
  
-      <label><b>Select Leave Type :</b></label>
+      <label><b>Select Reason :</b></label>
       <!-- error message if type of absence isn't selected -->
 <!--     
       <div class="form-check">

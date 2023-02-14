@@ -30,12 +30,13 @@
                
             </div>
             <div class="menu">
+               
+                    
                 <ul>
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">ADMIN</a></li>
                 <li><a href="#">TEACHER</a></li>
                 <li><a href="#">STUDENT </a></li>
-            
                 <button class="btnlo" onclick="location.href='login.php'">login</button>
                 <button id="btnlo" class="type" ></button>
              
@@ -43,16 +44,25 @@
                 <button id="btnre" class="type"  ></button>
             
             
-                </ul>
-
-                    
-        </div> 
+                </ul>                    
+        </div>
         
-      
         
-        <div class="search">
+        
+      <!-- google transilator -->
+        
+        <div id="google_element" class="search">
             <input class ="srch" type="search" name="" placeholder="type to text">
                 <a href="#"> <button class="btn">search </button></a>
+                <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+                            <script >
+                                function loadGoogleTranslate(){
+                                   new google.translate.TranslateElement("google_element");
+                                }
+                            </script>
+                            <!-- end -->
+
+                            
             </div>
             <div class="img">
                 <style>

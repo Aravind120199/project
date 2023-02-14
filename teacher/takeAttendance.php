@@ -95,20 +95,34 @@ if(isset($_POST['save']))
 {
 
 
+$time=date('Y-m-d');
 
 $sql2=mysqli_query($conn,"SELECT `Name`, `Lastname`,`Email_id`,`batch` FROM `reguser`") ;
-                        while ($row = mysqli_fetch_array($sql2)) 
-                        {
-                                $firstname=$row['Name']; 
-                                $lastname=$row['Lastname'];
-                                $emailid=$row['Email_id'];
-                                $batch=$row['batch'];
-                                $status=1;
-                                $dateTaken = date("Y-m-d");
-                                $result2=mysqli_query($conn,"INSERT INTO `attendancetable`(`firstname`, `lastname`, `email`,`batch`,`status`, `dateTimeTaken`) VALUES ('$firstname','$lastname','$emailid','$batch','$status','$dateTaken')");
-                                
-                       }   
-                        }
+
+      while ($row = mysqli_fetch_array($sql2)) 
+      {
+              $firstname=$row['Name']; 
+              $lastname=$row['Lastname'];
+              $emailid=$row['Email_id'];
+              $batch=$row['batch'];
+              $status=Present;
+              $dateTaken = date("Y-m-d");      
+              
+     }
+     $sqll=mysqli_query($conn,"SELECT 'dateTimeTaken' FROM  `attendancetable` WHERE `dateTimeTaken`=$time");
+     if(mysqli_fetch_assoc($sqll)>0)
+     {
+        echo('alert("Already Update")');
+     }
+     else{
+      $result2=mysqli_query($conn,"INSERT INTO `attendancetable`(`firstname`, `lastname`, `email`,`batch`,`status`, `dateTimeTaken`) VALUES ('$firstname','$lastname','$emailid','$batch','$status','$dateTaken')"); 
+
+     }
+    
+
+      }
+
+
                     
 
 ?>
@@ -191,6 +205,7 @@ $sql2=mysqli_query($conn,"SELECT `Name`, `Lastname`,`Email_id`,`batch` FROM `reg
                 <div class="table-responsive p-3">
                 <?php echo $statusMsg; ?>
                   <table class="table align-items-center table-flush table-hover">
+                    
                     <thead class="thead-light">
                       <tr>
                         <th>#</th>
@@ -206,7 +221,7 @@ $sql2=mysqli_query($conn,"SELECT `Name`, `Lastname`,`Email_id`,`batch` FROM `reg
                     <tbody>
 
                   <?php
-                      $query = "SELECT * FROM reguser";
+                      $query = "SELECT * FROM reguser WHERE batch = 'plus one'";
                       $rs = $conn->query($query);
                       $num = $rs->num_rows;
                       $sn=0;
@@ -243,8 +258,13 @@ $sql2=mysqli_query($conn,"SELECT `Name`, `Lastname`,`Email_id`,`batch` FROM `reg
                   </table>
                   <br>
                   <button type="submit" name="save" class="btn btn-primary">Take Attendance</button>
+               
+                  
                   </form>
+                  <a class="btn btn-primary" href="takeattendenceplus2.php">Click to take plus 2 students Attendence</a>
+                  
                 </div>
+                
               </div>
             </div>
             </div>

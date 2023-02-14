@@ -40,7 +40,7 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="update_mark.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name"> update mark</span>
           </a>
@@ -59,7 +59,7 @@ $var = $_SESSION['email'];
         </li>
         
         <li>
-          <a href="">
+          <a href="upload/index.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">cource Material</span>
           </a>
@@ -321,9 +321,9 @@ $(document).ready(function(){
         {  
             $user_name=$row[1];  
             $user_lname=$row[2];
-            $user_batch=$row[9];  
-            $user_gender=$row[10]; 
-            $user_Email_id=$row[11];   
+            $user_batch=$row[3];  
+       
+            $user_Email_id=$row[4];   
 
   
         ?>  
@@ -362,7 +362,7 @@ $(document).ready(function(){
           <th>First name</th>
           <th>lastname</th>
           <th>Batch</th>
-          <th>Gender</th>
+        
           <th>Student email id</th>
           
 
@@ -377,9 +377,9 @@ $(document).ready(function(){
         {  
             $user_name=$row[1];  
             $user_lname=$row[2];
-            $user_batch=$row[9];  
-            $user_gender=$row[10]; 
-            $user_Email_id=$row[11];   
+            $user_batch=$row[3];  
+         
+            $user_Email_id=$row[4];   
 
   
         ?>  
@@ -390,7 +390,7 @@ $(document).ready(function(){
             <td><?php echo $user_name;  ?></td>  
             <td><?php echo $user_lname;  ?></td>  
             <td><?php echo $user_batch;  ?></td> 
-            <td><?php echo $user_gender;  ?></td> 
+      
             <td><?php echo $user_Email_id;  ?></td> 
 
 

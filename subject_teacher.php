@@ -1,3 +1,4 @@
+
 <?php
 include('session.php');
 include('connect.php');
@@ -40,7 +41,7 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="update_mark.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name"> update mark</span>
           </a>
@@ -59,7 +60,7 @@ $var = $_SESSION['email'];
         </li>
        
         <li>
-          <a href="subject_tec_courece_material.php">
+          <a href="upload/index.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">cource Material</span>
           </a>
@@ -93,9 +94,7 @@ $var = $_SESSION['email'];
       
       </div>
      
-    </nav>
-
-              
+    </nav>      
              
             </div>
           </div>
@@ -154,7 +153,9 @@ $var = $_SESSION['email'];
                     <!-- Profile picture image-->
                     <img class="img-account-profile rounded-circle mb-2"style="width:200px;" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                     <!-- Profile picture help block-->
-                   
+                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                    <!-- Profile picture upload button-->
+                  <!--  <button class="btn btn-primary" type="button">Upload new image</button> -->
                 </div>
             </div>
         </div>
@@ -172,8 +173,6 @@ $var = $_SESSION['email'];
    $p = $row['phone'];
   
 ?>
-  
-
         <div class="col-xl-8">
             <!-- Account details card-->
             <div class="card mb-4">
@@ -192,13 +191,10 @@ $var = $_SESSION['email'];
                                 <label class="small mb-1" for="inputusername">Lastname</label>
                                 <input class="form-control" id="fname" type="text" readonly="readonly"  value=<?php  echo $l_name;?>>
                             </div>
-                          
-                        
-                          
                         <!-- Form Group (email address)-->
                         <div class="mb-3">
                             <label class="small mb-1" for="inputphone">phone number</label>
-                            <input class="form-control" id ="inputphone" type="num"  readonly="readonly"  value=<?php  echo $p;?>>
+                            <input class="form-control" id="inputphone" type="num"  readonly="readonly"  value=<?php  echo $p;?>>
                         </div>
                         <!-- Form Row-->
                         <div class="row gx-3 mb-3">
@@ -207,23 +203,15 @@ $var = $_SESSION['email'];
                                 <label class="small mb-1" for="inputemail">email</label>
                                 <input class="form-control" id="email" type="email"  readonly="readonly"  value=<?php  echo $var;?>>
                             </div>
-                            
-                            
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputgender">Qualification</label>
                                 <input class="form-control" id="inputgnder" type="text" name="gender"  readonly="readonly"  value=<?php  echo $q;?>>
                             </div>
-                            
-                           
-                          
-					
-
                     </form>
                     </div>
-                    <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
-               
             </div>
         </div>
+        <a href="edit profile.php?em=<?php echo $var;?>"><button>Update</button></a>
     </div>
 </div
  </div>

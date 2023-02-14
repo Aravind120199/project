@@ -38,7 +38,7 @@ include('connect.php');
         </li>
         
         <li>
-          <a href="">
+          <a href="upload/downloads.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">cource material</span>
           </a>

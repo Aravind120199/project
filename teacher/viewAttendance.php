@@ -38,7 +38,7 @@ include 'Includes/dbcon.php';
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">View Class Attendance</h1>
+            <h1 class="h3 mb-0 text-gray-800">View Plus 1 Attendance</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="./">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page">View Class Attendance</li>
@@ -66,6 +66,7 @@ include 'Includes/dbcon.php';
                         </div> -->
                     </div>
                     <button type="submit" name="view" class="btn btn-primary">View Attendance</button>
+                    <a class="btn btn-primary" href="viewplus2.php"> View plus 2 Attendance</a>
                   </form>
                 </div>
               </div>
@@ -86,14 +87,7 @@ include 'Includes/dbcon.php';
                         <th>Email</th>
                         <th>Batch</th>
                         <th>status</th>
-                        <!-- <th>Other Name</th>
-                        <th>Admission No</th>
-                        <th>Class</th>
-                        <th>Class Arm</th>
-                        <th>Session</th>
-                        <th>Term</th>
-                        <th>Status</th> -->
-                        <!-- <th>Date</th> -->
+                        
                       </tr>
                     </thead>
                    
@@ -154,7 +148,7 @@ include 'Includes/dbcon.php';
 
                       /*Next Code  */
 
-                      $query = "SELECT `firstname`, `lastname`, `email`,`batch`,`status`  FROM `attendancetable` WHERE `dateTimeTaken` = '$dateTaken'";
+                      $query = "SELECT `firstname`, `lastname`, `email`,`batch`,`status`  FROM `attendancetable` WHERE `dateTimeTaken` = '$dateTaken' and batch = 'plus 1'";
                       $rs = $conn->query($query);
                       $num = $rs->num_rows;
                       if($num > 0)

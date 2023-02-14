@@ -75,6 +75,12 @@ $var = $_SESSION['email'];
             <span class="links_name">Attendece</span>
           </a>
         </li>
+        <li>
+          <a href="view_takeAttendance.php">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name"> Edit Attendece</span>
+          </a>
+        </li>
      
         <li>
           <a href="cource_material.php">

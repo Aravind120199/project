@@ -71,7 +71,7 @@
           </a>
         </li>
         <li>
-          <a href="cource_material.php">
+          <a href="upload/index.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">cource Material</span>
           </a>
@@ -123,7 +123,7 @@ if (isset($_POST["submit"]))
 
 <link rel="stylesheet" href="timetable.css"> 
 
-<div class="container"> 
+<div class="container" style="margin-top: 100px;"> 
 
   <form id="contact" action="" method="post">
  
@@ -142,19 +142,30 @@ if (isset($_POST["submit"]))
 </fieldset>
     <fieldset> <h4><b> Last Name</b></h4>
     <input type="text" name="lname" id="" value="<?php echo $row['lastname'];?>" readonly>
-<br> <h4><b> Batch</b></h4>
-  <input type="text" id="" name="batch" value="<?php echo $row['batch'];?>" readonly>
-  <h4><b> Status</b></h4>
-<input type="text" id="" name="status" value="<?php echo $row['status'];?>">
-<h4><b>Date</b></h4>
-  <input type="date" id="" name="dte" value="<?php echo $row['dateTimeTaken'];?>" min="<?php echo date('Y-m-d');?>">
- <?php 
-  }
-  ?>
+    </fieldset>
+    <fieldset> <h4><b> Email</b></h4>
+    <input type="text" name="email" id="" value="<?php echo $row['email'];?>" readonly>
+    </fieldset>
+    <fieldset><h4><b> Batch</b></h4>
+      <input type="text" id="" name="batch" value="<?php echo $row['batch'];?>" readonly>
+    </fieldset>
+    <fieldset><h4> Status</h4></fieldset>
+   
+        <select name="status" id="" value="<?php echo $row['status'];?>" >   
+        <option value = "" selected> Select option </option>  
+        <option value = "Present" > Present </option>  
+        <option value = "Absent" > Absent </option>
+  </select>
+     
+    
+ 
+    <h4><b>Date</b></h4>
+      <input type="date" id="" name="dte"value="<?php echo $row['dateTimeTaken'];?>" min="<?php echo date('Y-m-d');?>">
+    <?php 
+      }
+      ?>
+  
  <br>
   <button name="submit" type="submit" id="submit" name="submit" onsubmit="alert('Add successfully')"data-submit="...Sending">EDIT</button>
-
-</select> 
-</fieldset>
 </div>
 </html>

@@ -21,6 +21,7 @@ $var = $_SESSION['email'];
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
+
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-m-plus-plus'></i>
@@ -82,7 +83,7 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
-          <a href="cource_material.php">
+          <a href="upload/index.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">cource Material</span>
           </a>
@@ -103,16 +104,14 @@ $var = $_SESSION['email'];
         </li>
       </ul>
   </div>
-  <section class="home-section">
+
+  
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
         <span class="dashboard">Dashboard</span>
       </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class='bx bx-search' ></i>
-      </div>
+      
      
     </nav>
 

@@ -56,12 +56,7 @@ include('connect.php');
             <span class="links_name">teacher leave</span>
           </a>
         </li>
-        <li>
-          <a href="officefee.php">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Office</span>
-          </a>
-        </li>
+       
         <li>
           <a href="timetable.php">
             <i class='bx bx-coin-stack' ></i>
@@ -69,12 +64,7 @@ include('connect.php');
           </a>
         </li>
         
-        <li>
-          <a href="#">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Settings</span>
-          </a>
-        </li>
+      
         <li class="">
           <a href="logout.php">
             <i class='bx bx-log-out'></i>
@@ -290,7 +280,7 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h2>plus one <b>teachers</b></h2>
+                        <h1><b>TEACHERS</b></h1>
                     </div>
                   
                 </div>
@@ -314,7 +304,7 @@ $(document).ready(function(){
 
 <?php  
 include("connect.php");  
-$view_users_query="select * from userlog inner join regteacher on regteacher.id=userlog.fid  where regteacher.batch='plus_one'";//select query for viewing users.  
+$view_users_query="select * from userlog inner join regteacher on regteacher.id=userlog.fid";//select query for viewing users.  
 $run=mysqli_query($conn,$view_users_query);//here run the sql query.  
 
 while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.  
@@ -352,82 +342,6 @@ echo '<p><a class="bt" href="statuss.php?id='.$row['id'].'">ACTIVATE</a></p>';
 <?php } ?>  
 
 </container>
-                   
-</div> 
-                </div>
-            </div>
-            <table class="table table-striped table-hover">
-            <thead>  
-            <div class="col-sm-5">
-                        <h2>plus two <b>teachers</b></h2>
-                    </div> 
-                        
-                          
-            <tr>  
-       
-              <th>First name</th>
-              <th>lastname</th>
-              <th> Batch</th>
-              <th>Subject</th>
-              <th>Email id</th>
-              <th>Phone number</th>
-              <th>Action</th>
-              
-
-            </tr>  
-            </thead>  
-
-<?php  
-include("connect.php");  
-$view_users_query="select * from regteacher where batch='plus_two'";//select query for viewing users.  
-$run=mysqli_query($conn,$view_users_query);//here run the sql query.  
-
-while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.  
-{  
- 
-$user_tname=$row['Name'];  
-$user_tlname=$row['Lastname'];
-$user_batc=$row['batch'];  
-$user_sub=$row['sub'];  
-$user_email=$row['email_id']; 
-$user_nphone=$row['phone'];   
-
-
-?>  
-
-<tr>  
-<!--here showing results in the table -->  
-
-<td><?php echo $user_tname;  ?></td>  
-<td><?php echo $user_tlname;  ?></td>  
-<td><?php echo $user_batc;  ?></td> 
-<td><?php echo $user_sub;  ?></td> 
-<td><?php echo $user_email;  ?></td> 
-<td><?php echo $user_nphone;  ?></td> 
-
-
-<td> <?php if($row['status']==1){
-echo '<p><a class="btna" href="status.php?id='.$row['id'].'&status=0">DEACTIVATE</a></p>';
-}if($row['status']==0){
-echo '<p><a class="bt" href="status.php?id='.$row['id'].'&status=1">ACTIVATE</a></p>';
-} ?></td>
-
-
-
-<!--<td><a href="delete.php?id=<?php echo $rows['id'];?>"><button style="color:white; background-color:red; width:80px height:30px;">Delete</button></a></td>
-<td>-->
-
-
-
-
-
-
-
-</td>
-</tr>  
-
-<?php } ?>  
-
 
 </div>
 </div>  

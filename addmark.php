@@ -6,8 +6,7 @@ if(!isset($_SESSION["email"]))
     header("Location:login.php");
 }
 $var = $_SESSION['email'];
-?>
-<?php
+
 if (isset($_POST["submit"]))
 {
 	
@@ -16,17 +15,23 @@ if (isset($_POST["submit"]))
     $subject=$_POST['subject'];
     $mt=$_POST['mt'];
     $stid=$_POST['stid'];
-    $sel="SELECT * from mark where stid='".$stid."' AND mtype='".$mt."'";
+    $sel="SELECT * FROM `mark` WHERE `stid`=$subject AND `mtype`=$mt";
+    $results=mysqli_query($conn,$sel);
 
-    $res=$conn->query($sel);
+    /* if(mysqli_num_rows($results)==1)
+    {
+      echo "<script>alert('mark already added')</script>";
+    } */
+    /* else{ */
 
- $res= mysqli_query($conn, "INSERT INTO `mark`( `sid`, `stid`, `mark`,`mtype`) VALUES ('$subject','$stid','$mark','$mt')");
- if($res)
- {
+      $res= mysqli_query($conn, "INSERT INTO `mark`( `sid`, `stid`, `mark`,`mtype`) VALUES ('$subject','$stid','$mark','$mt')");
+      if($res)
+      {
 
-    echo "<script>alert('mark added')</script>";
- }
+          echo "<script>alert('mark added')</script>";
+      }
     }
+ /*  } */
 
   ?>
 
@@ -96,8 +101,14 @@ if (isset($_POST["submit"]))
             <span class="links_name">Attendece</span>
           </a>
         </li>
-     
         <li>
+          <a href="view_takeAttendance.php">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name"> Edit Attendece</span>
+          </a>
+        </li>
+     
+        <li>                                        
           <a href="">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">cource Material</span>
@@ -338,13 +349,8 @@ $(document).ready(function(){
    
     <th>Submit</th>
   </tr>
-<!--   
-<tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
- </tr>
- --><form id="contact" action="" method="post">
+
+<form id="contact" action="" method="post">
   <tr>
     <td>
       <fieldset>
@@ -352,7 +358,7 @@ $(document).ready(function(){
     <select  name="subject"id="subject" required>
     <?php  
 $b=$_GET['b'];
-$view_users_query="SELECT * from subject WHERE batch='".$b."' ";//select query for viewing subjects.  
+$view_users_query="SELECT * from `subject` WHERE batch='".$b."' ";//select query for viewing subjects.  
 $run=mysqli_query($conn,$view_users_query);//here run the sql query.  
 
 while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.  

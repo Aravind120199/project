@@ -56,12 +56,7 @@ include('connect.php');
             <span class="links_name">teacher leave</span>
           </a>
         </li>
-        <li>
-          <a href="officefee.php">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Office</span>
-          </a>
-        </li>
+       
         <li>
           <a href="timetable.php">
             <i class='bx bx-coin-stack' ></i>
@@ -69,12 +64,7 @@ include('connect.php');
           </a>
         </li>
        
-        <li>
-          <a href="#">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Settings</span>
-          </a>
-        </li>
+      
         <li class="">
           <a href="logout.php">
             <i class='bx bx-log-out'></i>
@@ -307,7 +297,7 @@ $(document).ready(function(){
           <th>First name</th>
           <th>lastname</th>
           <th>Batch</th>
-          <th>Gender</th>
+    
           <th>Student email id</th>
           <th>Action</th>
 
@@ -322,9 +312,8 @@ $(document).ready(function(){
         {  
             $user_name=$row[1];  
             $user_lname=$row[2];
-            $user_batch=$row[9];  
-            $user_gender=$row[10]; 
-            $user_Email_id=$row[11];   
+            $user_batch=$row[3];  
+            $user_Email_id=$row[4];   
 
   
         ?>  
@@ -335,7 +324,7 @@ $(document).ready(function(){
             <td><?php echo $user_name;  ?></td>  
             <td><?php echo $user_lname;  ?></td>  
             <td><?php echo $user_batch;  ?></td> 
-            <td><?php echo $user_gender;  ?></td> 
+     
             <td><?php echo $user_Email_id;  ?></td> 
 
 
@@ -367,7 +356,7 @@ echo '<p><a class="bt" href="status1.php?ID='.$row['ID'].'&status=1">ACTIVATE</a
           <th>First name</th>
           <th>lastname</th>
           <th>Batch</th>
-          <th>Gender</th>
+        
           <th>Student email id</th>
           <th>Action</th>
 
@@ -382,9 +371,9 @@ echo '<p><a class="bt" href="status1.php?ID='.$row['ID'].'&status=1">ACTIVATE</a
         {  
             $user_name=$row[1];  
             $user_lname=$row[2];
-            $user_batch=$row[9];  
-            $user_gender=$row[10]; 
-            $user_Email_id=$row[11];   
+            $user_batch=$row[3];  
+         
+            $user_Email_id=$row[4];   
 
   
         ?>  
@@ -395,17 +384,18 @@ echo '<p><a class="bt" href="status1.php?ID='.$row['ID'].'&status=1">ACTIVATE</a
             <td><?php echo $user_name;  ?></td>  
             <td><?php echo $user_lname;  ?></td>  
             <td><?php echo $user_batch;  ?></td> 
-            <td><?php echo $user_gender;  ?></td> 
+          
             <td><?php echo $user_Email_id;  ?></td> 
 
 
 
 
-            <td> <?php if($row['status']==1){
-echo '<p><a class="btna" href="status1.php?ID='.$row['ID'].'&status=0">DEACTIVATE</a></p>';
+<td> <?php if($row['status']==1){
+echo '<p><a class="btn" href="status1.php?ID='.$row['ID'].'&status=0">DEACTIVATE</a></p>';
 }if($row['status']==0){
-echo '<p><a class="bt" href="status1.php?ID='.$row['ID'].'&status=1">ACTIVATE</a></p>';
-} ?></td>
+echo '<p><a class="btn" href="status1.php?ID='.$row['ID'].'&status=1">ACTIVATE</a></p>';
+} ?>
+</td>
  </tr>  
   <?php } ?>  
    

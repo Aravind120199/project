@@ -60,12 +60,8 @@ include('connect.php');
             <span class="links_name">teacher leave</span>
           </a>
         </li>
-        <li>
-          <a href="officefee.php">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Office</span>
-          </a>
-        </li>
+       
+       
         <li>
           <a href="timetable.php">
             <i class='bx bx-coin-stack' ></i>
@@ -73,12 +69,7 @@ include('connect.php');
           </a>
         </li>
         
-        <li>
-          <a href="#">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Settings</span>
-          </a>
-        </li>
+        
         <li class="">
           <a href="logout.php">
             <i class='bx bx-log-out'></i>
@@ -146,8 +137,8 @@ if (isset($_POST["submit"]))
     <fieldset>
     <select name="batch" id="batch" name="batch" required>
     <option value="sel">Select Batch</option>
-  <option value="Plus one">Plus one</option>
-  <option value="Plus two">Plus Two</option>
+  <option value="Plus one">Plus 1</option>
+  <option value="Plus two">Plus 2</option>
 
   
 
@@ -166,9 +157,48 @@ if (isset($_POST["submit"]))
 
 </select> 
      
-    </fieldset>
+    <!-- </fieldset>
     <input placeholder="teacher" type="text"  name="teacher"id="teacher" required>
-    </fieldset>
+    </fieldset> -->
+    
+     <!-- <fieldset>
+    <input placeholder="teacher" type="text"  name="teacher"id="teacher" required> -->
+    
+    <fieldset>
+     
+    <select  id="teacher" name="teacher" required>
+    <option value="sel">select teacher</option>
+    <?php 
+      $teach = "SELECT `Name`, `Lastname` FROM `regteacher`";
+      $rest= $conn->query($teach);
+      
+      if ($rest->num_rows > 0) {
+        // output data of each row
+        while($terow = $rest->fetch_assoc()) {
+         
+        
+      ?>
+    <option value="<?php echo $terow["Name"]. " " . $terow["Lastname"]?>"><?php echo $terow["Name"]. " " . $terow["Lastname"]?></option>
+    <?php
+  }
+  }
+  ?>
+    </select> 
+    
+ </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </fieldset>
     <h2>Time From</h2>
     <input placeholder="From" type="time"  name="from"id="from" required>

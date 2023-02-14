@@ -41,7 +41,7 @@ $var = $_SESSION['email'];
         </li>
       
         <li>
-          <a href="">
+          <a href="upload/downloads.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">cource material</span>
           </a>
@@ -182,7 +182,7 @@ $var = $_SESSION['email'];
                             {
                             $name = $row['Name'];
                             $l_name = $row['Lastname'];
-                            $g = $row['Gender'];
+                           
                            
 	        ?>
 

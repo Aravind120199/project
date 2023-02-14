@@ -82,7 +82,7 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="upload/index.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">cource Material</span>
           </a>
@@ -417,7 +417,7 @@ $(document).ready(function(){
             <td><?php echo $user_Email_id;  ?></td> 
 
 
-
+            <td><a href="edit_attendance.php?id=<?php echo $row['id'];?>" style="color:blue; font-size:14px;">EDIT</a></td>
 
            
  </tr>  

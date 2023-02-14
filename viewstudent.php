@@ -330,16 +330,16 @@ $(document).ready(function(){
   </thead> 
   <?php  
         include("connect.php");  
-        $view_users_query="select * from reguser where batch='plus 1' ";//select query for viewing users.  
+        $view_users_query="select * from reguser where batch='plus one' ";//select query for viewing users.  
         $run=mysqli_query($conn,$view_users_query);//here run the sql query.  
   
         while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.  
         {  
             $user_name=$row[1];  
             $user_lname=$row[2];
-            $user_batch=$row[9];  
+            $user_batch=$row[3];  
            
-            $user_Email_id=$row[11];   
+            $user_Email_id=$row[4];   
 
   
         ?>  
@@ -385,16 +385,16 @@ $(document).ready(function(){
   </thead> 
   <?php  
         include("connect.php");  
-        $view_users_query="select * from reguser where batch='plus 2' ";//select query for viewing users.  
+        $view_users_query="select * from reguser where batch='plus two' ";//select query for viewing users.  
         $run=mysqli_query($conn,$view_users_query);//here run the sql query.  
   
         while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.  
         {  
             $user_name=$row[1];  
             $user_lname=$row[2];
-            $user_batch=$row[9];  
+            $user_batch=$row[3];  
         
-            $user_Email_id=$row[11];   
+            $user_Email_id=$row[4];   
 
   
         ?>  

@@ -56,12 +56,7 @@ include('connect.php');
             <span class="links_name">teacher leave</span>
           </a>
         </li>
-        <li>
-          <a href="officefee.php">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Office</span>
-          </a>
-        </li>
+       
         <li>
           <a href="timetable.php">
             <i class='bx bx-coin-stack' ></i>
@@ -69,12 +64,7 @@ include('connect.php');
           </a>
         </li>
        
-        <li>
-          <a href="#">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Settings</span>
-          </a>
-        </li>
+      
         <li class="">
           <a href="logout.php">
             <i class='bx bx-log-out'></i>
@@ -102,7 +92,7 @@ include('connect.php');
 </html>
  
 <head>
-   <title> Registration page </title>
+   
    <link rel="stylesheet" href="addtec.css">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.5/dist/bootstrap-validate.js" ></script>
@@ -274,14 +264,14 @@ if(isset($_POST["save"]))
     $Password = $_POST['pass'];
   
 
-  $sql ="INSERT INTO `regteacher`( `Name`, `Lastname`, `Date`, `Address`, `quali`, `batch`, `exp`, `sub`, `role`, `email_id`, `phone`, `Pass`) VALUES ('$name','$lastname','$date','$addrss','$quli','$batch','$exp','$sub','tec','$email','$phone','$Password')";
+  $sql ="INSERT INTO `regteacher`( `Name`, `Lastname`, `Date`, `Address`, `quali`, `batch`, `exp`, `sub`, `role`, `email_id`, `phone`, `Pass`) VALUES ('$name','$lastname','$date','$addrss','$quli','$batch','$exp','$sub','teacher','$email','$phone','$Password')";
     $result =mysqli_query($conn,$sql);
     //$result =mysqli_query($conn,$sql);
     $sql2=mysqli_query($conn,"SELECT id from regteacher where Name='$name' and Lastname = '$lastname' and email_id='$email'") ;
                         while ($row = mysqli_fetch_array($sql2)) 
                         {
                                 $value=$row['id'];
-                                $result2=mysqli_query($conn,"INSERT INTO `userlog`(`Email_id`, `Password`,`role`,`fid`) VALUES ('$email','$Password','tec','$value')");
+                                $result2=mysqli_query($conn,"INSERT INTO `userlog`(`Email_id`, `Password`,`role`,`fid`) VALUES ('$email','$Password','teacher','$value')");
                                 
                         }
                     }

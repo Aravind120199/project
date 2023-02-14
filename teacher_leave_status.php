@@ -56,12 +56,7 @@ include('connect.php');
             <span class="links_name">teacher leave</span>
           </a>
         </li>
-        <li>
-          <a href="officefee.php">
-            <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">Office</span>
-          </a>
-        </li>
+      
         <li>
           <a href="timetable.php">
             <i class='bx bx-coin-stack' ></i>
@@ -69,12 +64,7 @@ include('connect.php');
           </a>
         </li>
         
-        <li>
-          <a href="#">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Settings</span>
-          </a>
-        </li>
+       
         <li class="">
           <a href="logout.php">
             <i class='bx bx-log-out'></i>

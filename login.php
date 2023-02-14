@@ -28,22 +28,22 @@ if($res->num_rows > 0)
         
       }
            
-      // elseif($_SESSION['type']=='tec' and $row['staus']=='1')
+      elseif($_SESSION['type']=='teacher' and $row['staus']=='1')
       
-      // {
-      //   $status="SELECT * FROM `regteacher` WHERE 'status'=0";
-      //   if(($conn->query($status)))  
-      //   {
-      //     session_start();
-      //     $_SESSION['message']="Welcome";
-      //     $_SESSION['email']=$row['Email_id'];
-      //     header("location:subject_teacher.php");
-      //   }
-      //   else{
-      //     echo "alert('Something error')";
-      //   }
+      {
+        $status="SELECT * FROM `regteacher` WHERE 'status'=1";
+        if(($conn->query($status)))  
+        {
+          session_start();
+          $_SESSION['message']="Welcome";
+          $_SESSION['email']=$row['Email_id'];
+          header("location:subject_teacher.php");
+        }
+        else{
+          echo "alert('Something error')";
+        }
         
-      // }
+      }
       elseif($_SESSION['type']=='tec' and $row['staus']=='1')
       
       {
@@ -167,7 +167,7 @@ font-weight:bold;
                         <input type="submit" id="submit" value="login" name="login" class="btn">   
                         </p>
                         <p>
-                            <a href="forget.php">Forget password?</a>
+                            <a href="forgot.php">Forget password?</a>
                         </p>
 
                     </form>

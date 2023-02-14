@@ -28,7 +28,7 @@ $var = $_SESSION['email'];
     </div>
       <ul class="nav-links">
         <li>
-          <a href="" class="active">
+          <a href="subject_teacher.php" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Home</span>
           </a>
@@ -59,7 +59,7 @@ $var = $_SESSION['email'];
         </li>
        
         <li>
-          <a href="subject_tec_courece_material.php">
+          <a href="upload/index.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">cource Material</span>
           </a>
