@@ -148,7 +148,7 @@ include 'Includes/dbcon.php';
 
                       /*Next Code  */
 
-                      $query = "SELECT `firstname`, `lastname`, `email`,`batch`,`status`  FROM `attendancetable` WHERE `dateTimeTaken` = '$dateTaken' and batch = 'plus 2'";
+                      $query = "SELECT `firstname`, `lastname`, `email`,`batch`,`status`  FROM `attendancetable` WHERE `dateTimeTaken` = '$dateTaken' and batch = 'plus two'";
                       $rs = $conn->query($query);
                       $num = $rs->num_rows;
                       if($num > 0)

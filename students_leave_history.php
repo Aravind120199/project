@@ -1,3 +1,4 @@
+
 <?php
 include('session.php');
 include('connect.php');
@@ -104,8 +105,6 @@ $var = $_SESSION['email'];
       </div>
      
     </nav>
-
-    
     <div class="home-content">
       
             <div class="indicator">

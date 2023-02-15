@@ -12,6 +12,46 @@ include('connect.php');
   
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+     
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+ <script type="text/javascript">
+ google.load("visualization", "1", {packages:["corechart"]});
+ google.setOnLoadCallback(drawChart);
+ function drawChart() {
+ var data = google.visualization.arrayToDataTable([
+
+ ['Gender','Number'],
+ <?php 
+      $query = "SELECT count(batch) AS number, batch FROM reguser GROUP BY batch";
+
+       $exec = mysqli_query($conn,$query);
+       while($row = mysqli_fetch_array($exec)){
+
+       echo "['".$row['batch']."',".$row['number']."],";
+       }
+       ?> 
+ 
+ ]);
+
+ var options = {
+ title: 'Total Students',
+  pieHole: 0,
+          pieSliceTextStyle: {
+            color: 'black',
+          },
+          legend: 'none'
+ };
+ var chart = new google.visualization.PieChart(document.getElementById("columnchart12"));
+ chart.draw(data,options);
+ }
+  
+    </script>
+
    </head>
 <body>
   <div class="sidebar">
@@ -63,6 +103,14 @@ include('connect.php');
             <span class="links_name">timetable</span>
           </a>
         </li>
+        
+        <li>
+          <a href="schedule">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">Calender</span>
+          </a>
+        </li>
+      
       
       
         <li class="">
@@ -324,7 +372,9 @@ table.table .avatar {
     font-size: 13px;
 }
 </style>
-
+<div class="container-fluid">
+ <div id="columnchart12" style="width: 100%; height: 500px;"></div>
+ </div>
 
 
 <script>
@@ -362,6 +412,7 @@ $(document).ready(function(){
 
             </tr>  
             </thead>  
+            
 
 <?php  
 include("connect.php"); 
@@ -416,7 +467,7 @@ $a=$row['feedback'];
                    
 </div> 
   </section>
-
+  
 
 </body>
 </html>

@@ -6,6 +6,7 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.5/dist/bootstrap-validate.js" ></script>
    <script src ="bootstrap-validate.js"></script>
+   
 </head>
 <body>
  
@@ -34,7 +35,7 @@
     </div>
                <div>
    
-               <input type="text" id="txtDate" name="Date" value="Date"   placeholder="date of birth" readonly="readonly" />
+               <input type="text" id="txtDate" name="Date"    placeholder="date of birth" readonly="readonly" />
     <br />
 <span id="lblError" style = "color:Red"></span>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>

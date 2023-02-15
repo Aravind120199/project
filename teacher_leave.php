@@ -264,14 +264,16 @@ if (isset($_POST["submit"]))
         </label>
       </div> -->
   
-      <div class="mb-3 ">
-        <label for="dates"><b>From -</b></label>
-        <input type="date" name="fromdate">
+      
+
+        <h4><b> From Date</b></h4>
+      <input type="date" id="" name="fromdate"value="" min="<?php echo date('Y-m-d');?>">
+
+      
+      <h4><b>  To Date</b></h4>
+      <input type="date" id="" name="todate"value="" min="<?php echo date('Y-m-d');?>">
   
-        <label for="dates"><b>To -</b></label>
-        <input type="date" name="todate">
-      </div>
-  
+        
       <div class="mb-3">
         
         <label for="leaveDesc" class="form-label"><b>Please mention reasons for your leave days :</b></label>

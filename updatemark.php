@@ -1,3 +1,14 @@
+<?php
+include('session.php');
+include('connect.php');
+if(!isset($_SESSION["email"])) 
+{
+    header("Location:login.php");
+}
+$var = $_SESSION['email'];
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
@@ -17,61 +28,38 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="teacher.php" class="active">
+          <a href="subject_teacher.php" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Home</span>
           </a>
         </li>
         <li>
-          <a href="viewstudent.php">
+          <a href="subject_teacher_view_student.php">
             <i class='bx bx-box' ></i>
             <span class="links_name">Students</span>
           </a>
         </li>
         <li>
-          <a href="stuleave.php">
+          <a href="">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">leave status</span>
+            <span class="links_name"> update mark</span>
           </a>
         </li>
         <li>
-          <a href="subjects.php">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Subject</span>
-          </a>
-        </li>
-        <li>
-          <a href="addmrk.php">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">  mark</span>
-          </a>
-        </li>
-        <li>
-          <a href="teacher_leave.php">
+          <a href="subject_tec_leave.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name"> leave</span>
           </a>
         </li>
         <li>
-          <a href="tec_timetable.php">
+          <a href="">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Time table</span>
+            <span class="links_name"> timetable</span>
           </a>
         </li>
+       
         <li>
-          <a href="teacher/takeAttendance.php">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Attendece</span>
-          </a>
-        </li>
-        <li>
-          <a href="view_takeAttendance.php">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Edit Attendance</span>
-          </a>
-        </li>
-        <li>
-          <a href="cource_material.php">
+          <a href="upload/index.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">cource Material</span>
           </a>
@@ -98,6 +86,13 @@
         <i class='bx bx-menu sidebarBtn'></i>
         <span class="dashboard">Dashboard</span>
       </div>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class='bx bx-search' ></i>
+      </div>
+     
+    </nav>
 
 
 

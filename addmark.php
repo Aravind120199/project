@@ -78,7 +78,7 @@ if (isset($_POST["submit"]))
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="addmrk.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">  mark</span>
           </a>
@@ -431,7 +431,7 @@ td, th {
 <td><?php echo $row['mark'];?></td>
 <td><?php echo $row['mtype'];?></td>
   </tr>
-  <td><a href="updatemark.php?id=<?php echo $row['id'];?>&uid=<?php echo $row['mid'];?>" style="color:blue; font-size:14px;">EDIT</a></td>
+  <td><a href="upd.php?id=<?php echo $row['id'];?>&uid=<?php echo $row['mid'];?>" style="color:blue; font-size:14px;">EDIT</a></td>
 
     <?php } ?>
 </table>

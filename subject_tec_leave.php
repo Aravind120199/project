@@ -149,7 +149,7 @@ if (isset($_POST["submit"]))
             <button id="back" onclick="window.location.href='subject_teacher.php';">back</button>
            <br>
            <br>
-           <button id="back" onclick="window.location.href='myleave_history.php';">MY  Leave History</button>
+           <button id="back" onclick="window.location.href='subject_teacher_leave_history.php';">MY  Leave History</button>
             </ul>
 
       
@@ -264,13 +264,15 @@ if (isset($_POST["submit"]))
         </label>
       </div> -->
   
-      <div class="mb-3 ">
-        <label for="dates"><b>From -</b></label>
-        <input type="date" name="fromdate">
+
+         
+      <h4><b>  From  Date</b></h4>
+      <input type="date" id="" name="fromdate"value="" min="<?php echo date('Y-m-d');?>">
   
-        <label for="dates"><b>To -</b></label>
-        <input type="date" name="todate">
-      </div>
+          
+      <h4><b> To  Date</b></h4>
+      <input type="date" id="" name="todate"value="" min="<?php echo date('Y-m-d');?>">
+   
   
       <div class="mb-3">
         

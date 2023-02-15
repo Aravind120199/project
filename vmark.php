@@ -6,6 +6,12 @@ if(!isset($_SESSION["email"]))
     header("Location:login.php");
 }
 $var = $_SESSION['email'];
+$email=$_SESSION['email'];
+$query = "SELECT * FROM reguser Where `Email_id`= '$email'";
+$result= mysqli_query($conn, $query);
+while ($rowz = $result->fetch_assoc()) {
+ $uid = $rowz['ID'];
+}
 ?>
 <?php
 if (isset($_POST["submit"]))
@@ -45,6 +51,47 @@ else{
   
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+     
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+ <script type="text/javascript">
+ google.load("visualization", "1", {packages:["corechart"]});
+ google.setOnLoadCallback(drawChart);
+ function drawChart() {
+ var data = google.visualization.arrayToDataTable([
+
+ ['Gender','Number'],
+ <?php 
+      $query = "SELECT mark.mark, subject.subject FROM mark INNER JOIN subject WHERE mark.sid=subject.id AND stid=$uid";
+
+
+       $exec = mysqli_query($conn,$query);
+       while($row = mysqli_fetch_array($exec)){
+
+       echo "['".$row['subject']."',".$row['mark']."],";
+       }
+       ?> 
+ 
+ ]);
+
+ var options = {
+ title: 'Mark',
+  pieHole: 0,
+          pieSliceTextStyle: {
+            color: 'black',
+          },
+          legend: 'none'
+ };
+ var chart = new google.visualization.ColumnChart(document.getElementById("columnchart12"));
+ chart.draw(data,options);
+ }
+  
+    </script>
+
    </head>
 <body>
   <div class="sidebar">
@@ -214,7 +261,11 @@ Exam Result
     <?php } ?>
 </table>
 </center>
-</div>     
+
+</div>  
+<div class="container-fluid">
+ <div id="columnchart12" style="width: 100%; height: 500px;"></div>
+ </div>   
 </body>
 </html>
 
