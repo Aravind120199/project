@@ -17,8 +17,8 @@ include 'Includes/dbcon.php';
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="img/logo/attnlg.jpg" rel="icon">
-  <title>Dashboard</title>
+  <!-- <link href="img/logo/attnlg.jpg" rel="icon"> -->
+  <title>Attendance</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/ruang-admin.min.css" rel="stylesheet">
@@ -37,13 +37,7 @@ include 'Includes/dbcon.php';
 
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">View Plus 2 Attendance</h1>
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">View Class Attendance</li>
-            </ol>
-          </div>
+         
 
           <div class="row">
             <div class="col-lg-12">

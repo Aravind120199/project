@@ -163,7 +163,7 @@ if (isset($_POST["submit"]))
     <div class="alert alert-danger" id="err" role="alert">
     </div>
   
-    <form method="POST" onsubmit="alert(' successfully applied')">
+    <form  action="#" method="POST" onsubmit="alert(' successfully applied')">
 <!--     
     <label><b>Enter your name</b></label>
     <input  type="text" class="form-control" name="name" id="name" placeholder="enter your name"></input> -->
@@ -183,7 +183,7 @@ if (isset($_POST["submit"]))
 
 <div class="mb-3">
                             <label class="small mb-1" for="inputUsername">First name</label>
-                            <input class="form-control" id="Name" type="text" readonly="readonly" value="<?php  echo $name;?> <?php  echo $l_name;?>">
+                            <input class="form-control" id="name" name="name"  type="text" readonly="readonly" value="<?php  echo $name;?> <?php  echo $l_name;?>">
                         </div>
                         
                       
@@ -274,13 +274,13 @@ if (isset($_POST["submit"]))
         </label>
       </div> -->
   
-      <div class="mb-3 ">
-        <label for="dates"><b>From -</b></label>
-        <input type="date" name="fromdate">
+      <h4><b> From Date</b></h4>
+      <input type="date" id="" name="fromdate"value="" min="<?php echo date('Y-m-d');?>">
+
+      
+      <h4><b>  To Date</b></h4>
+      <input type="date" id="" name="todate"value="" min="<?php echo date('Y-m-d');?>">
   
-        <label for="dates"><b>To -</b></label>
-        <input type="date" name="todate">
-      </div>
   
       <div class="mb-3">
         

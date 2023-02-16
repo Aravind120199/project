@@ -309,7 +309,7 @@ $(document).ready(function(){
             <thead>  
                           
             <tr>  
-            <th>Name</th>
+          
               <th>type</th>
               <th>descr</th>
               <th>fromdate</th>
@@ -328,7 +328,7 @@ $run=mysqli_query($conn,$view_users_query);//here run the squdentl query.
 
 while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.  
 {  
-$user_name=$row['name'];  
+ 
 $user_tname=$row['type'];  
 $user_tlname=$row['descr'];
 $fr = $row['fromdate'];
@@ -341,7 +341,7 @@ $st = $row['status'];
 
 <tr>  
 <!--here showing results in the table -->  
-<td><?php echo $user_name;  ?></td>
+
 <td><?php echo $user_tname;  ?></td>  
 <td><?php echo $user_tlname;  ?></td>  
 <td><?php echo $fr;  ?></td>  

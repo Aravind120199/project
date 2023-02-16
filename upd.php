@@ -156,11 +156,11 @@ if (isset($_POST["submit"]))
   {
     ?>
   <input type="hidden" name="id" value="<?php echo $row['id'];?>">
-    <fieldset>
+    <!-- <fieldset>
        <h4><b> Subject</b></h4>
-    <input type="text" name="sid" id="" value="<?php echo $row['sid'];?>" readonly>
+    <input type="text" name="sid" id="" value="<//?php echo $row['sid'];?>" readonly>
     
-</fieldset>
+</fieldset> -->
     <fieldset> <h4><b> Mark</b></h4>
     <input type="text" name="marks" id="" value="<?php echo $row['mark'];?>">
 <br> <h4><b> Mark of</b></h4>

@@ -63,6 +63,13 @@ include('connect.php');
             <span class="links_name">timetable</span>
           </a>
         </li>
+        <li>
+          <a href="schedule">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">Calender</span>
+          </a>
+        </li>
+       
        
       
         <li class="">

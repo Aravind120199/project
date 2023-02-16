@@ -39,6 +39,7 @@ if(isset($_POST['submit'])!=""){
 ?>
 <html>
 <head>
+
 <title>Upload  Files</title>
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
         <link rel="stylesheet" type="text/css" href="css/DT_bootstrap.css">
@@ -52,9 +53,11 @@ if(isset($_POST['submit'])!=""){
 <style>
 </style>
 <body>
+	
 	    <div class="row-fluid">
 	        <div class="span12">
 	            <div class="container">
+					
 		<br />
 		<h1><p>Upload Files</p></h1>	
 		<br />

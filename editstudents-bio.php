@@ -21,6 +21,7 @@ if(isset($_POST["submit"]))
 }
     ?>
 
+
 <?php
 include('session.php');
 include('connect.php');
@@ -37,9 +38,9 @@ $var = $_SESSION['email'];
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-   
+    
     <link rel="stylesheet" href="dashbord.css">
-  
+ 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
@@ -47,49 +48,68 @@ $var = $_SESSION['email'];
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-m-plus-plus'></i>
-      <span class="logo_name">Teacher</span>
+      <span class="logo_name">student</span>
     </div>
       <ul class="nav-links">
         <li>
-          <a href="subject_teacher.php" class="active">
+          <a href="" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Home</span>
           </a>
         </li>
         <li>
-          <a href="subject_teacher_view_student.php">
+          <a href="view_teacher_details.php">
             <i class='bx bx-box' ></i>
-            <span class="links_name">Students</span>
+            <span class="links_name">Teacher</span>
           </a>
         </li>
+      
         <li>
-          <a href="">
+          <a href="upload/downloads.php">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name"> update mark</span>
+            <span class="links_name">cource material</span>
           </a>
         </li>
         <li>
-          <a href="subject_tec_leave.php">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name"> leave</span>
-          </a>
-        </li>
-        <li>
-          <a href="subject_tec_timetable.php">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name"> timetable</span>
-          </a>
-        </li>
-       
-        <li>
-          <a href="upload/index.php">
+          <a href="vmark.php">
             <i class='bx bx-pie-chart-alt-2' ></i>
-            <span class="links_name">cource Material</span>
+            <span class="links_name">mark</span>
           </a>
         </li>
-       
-        
         <li>
+          <a href="leave.php">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">leave</span>
+          </a>
+        </li>
+        <li>
+          <a href="view_student_timetable.php">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">Time table</span>
+          </a>
+        </li>
+        <li>
+          <a href="feedback.php">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">feedback</span>
+          </a>
+        </li>
+        <li>
+          <a href="schedule list">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">Calender</span>
+          </a>
+        </li>
+        
+         
+        <li>
+          <a href="payfees.php">
+            <i class='bx bx-user' ></i>
+            <span class="links_name">Fees</span>
+          </a>
+        </li>
+        <li>
+      
           <a href="#">
             <i class='bx bx-user' ></i>
             <span class="links_name">Settings</span>
@@ -112,15 +132,9 @@ $var = $_SESSION['email'];
       <div class="search-box">
         <input type="text" placeholder="Search...">
         <i class='bx bx-search' ></i>
-        
-      
       </div>
      
     </nav>
-
-
-
-
 
 
 
@@ -239,7 +253,7 @@ $var = $_SESSION['email'];
                              
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputgender">Batch</label>
-                                <input class="form-control" id="add" type="text" name="batch" value="<?php echo $row['batch'];?>"readonly>
+                                <input class="form-control" id="add" type="text" name="batch" value="<?php echo $row['batch'];?>">
                             </div>
                              
                              
@@ -251,7 +265,7 @@ $var = $_SESSION['email'];
                              
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputgender">Subject</label>
-                                <input class="form-control" id="expr" type="text" name="sub" value="<?php echo $row['sub'];?>"readonly>
+                                <input class="form-control" id="expr" type="text" name="sub" value="<?php echo $row['sub'];?>">
                             </div>
                              
                             <div class="col-md-6">

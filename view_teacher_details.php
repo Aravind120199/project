@@ -67,9 +67,15 @@ include('connect.php');
             <span class="links_name">feedback</span>
           </a>
         </li>
+        <li>
+          <a href="shedule list">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">Calender</span>
+          </a>
+        </li>
         
         <li>
-          <a href="#">
+          <a href="stu_changepass.php">
             <i class='bx bx-user' ></i>
             <span class="links_name">Settings</span>
           </a>

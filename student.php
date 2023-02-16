@@ -78,15 +78,10 @@ $var = $_SESSION['email'];
         </li>
         
          
-        <li>
-          <a href="payfees.php">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Fees</span>
-          </a>
-        </li>
+      
         <li>
       
-          <a href="#">
+          <a href="stu_changepass.php">
             <i class='bx bx-user' ></i>
             <span class="links_name">Settings</span>
           </a>
@@ -189,7 +184,7 @@ $var = $_SESSION['email'];
                             {
                             $name = $row['Name'];
                             $l_name = $row['Lastname'];
-                           
+                            $batch = $row['batch'];
                            
 	        ?>
 
@@ -214,6 +209,12 @@ $var = $_SESSION['email'];
                                 <label class="small mb-1" for="inputusername">Lastname</label>
                                 <input class="form-control" id="fname" type="text" readonly="readonly"  value="<?php echo $l_name  ?>">
                             </div>
+                            <div class="row gx-3 mb-3">
+                          
+                          <div class="col-md-6">
+                              <label class="small mb-1" for="inputusername">Batch</label>
+                              <input class="form-control" id="batch" type="text" readonly="readonly"  value="<?php echo $batch  ?>">
+                          </div>
                           
                         
                           
@@ -229,7 +230,7 @@ $var = $_SESSION['email'];
                          
                          </form>
                     </div>
-                    <a href="editbio_students.php?em=<?php echo $var;?>"><button>Update</button></a>
+                    <a href="editstudents-bio.php?em=<?php echo $var;?>"><button>Update</button></a>
                
                         </div>
                       </div>

@@ -257,20 +257,20 @@ $var = $_SESSION['email'];
                             
                              
                             <div class="col-md-6">
-                                <label class="small mb-1" for="inputgender">Batch</label>
-                                <input class="form-control" id="add" type="text" name="batch" value="<?php echo $row['batch'];?>">
+                                <label class="small mb-1" for="inputgender">Batch </label>
+                                <input class="form-control" id="add" type="text" name="batch" value="<?php echo $row['batch'];?>" readonly>
                             </div>
                              
                              
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputgender">Experience</label>
-                                <input class="form-control" id="ba" type="text" name="exp"  value="<?php echo $row['exp'];?>">
+                                <input class="form-control" id="ba" type="text" name="exp"  value="<?php echo $row['exp'];?>" >
                             </div>
                             
                              
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputgender">Subject</label>
-                                <input class="form-control" id="expr" type="text" name="sub" value="<?php echo $row['sub'];?>">
+                                <input class="form-control" id="expr" type="text" name="sub" value="<?php echo $row['sub'];?>" readonly>
                             </div>
                              
                             <div class="col-md-6">

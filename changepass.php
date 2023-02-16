@@ -1,3 +1,6 @@
+
+
+
 <?php
 include('session.php');
 include('connect.php');
@@ -6,7 +9,24 @@ if(!isset($_SESSION["email"]))
     header("Location:login.php");
 }
 $var = $_SESSION['email'];
-?>
+if(isset($_POST["submit"]))
+{
+    $password1= $_POST['password1'];
+    $password2 = $_POST['password2'];
+    
+  $sql ="UPDATE `regteacher` SET `Pass`='$password1' where email_id='$var'";
+    $result =mysqli_query($conn,$sql);
+    $sql1 ="UPDATE `userlog` SET `Password`='$password1' where Email_id='$var'";
+    $result1 =mysqli_query($conn,$sql1);
+    if($result)
+    {
+        echo"<script>alert('Updated');</script>";
+    }
+}
+    ?>
+
+
+
 
 
 <!DOCTYPE html>
@@ -19,6 +39,12 @@ $var = $_SESSION['email'];
   
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
    </head>
 <body>
   <div class="sidebar">
@@ -40,7 +66,7 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="update_mark.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name"> update mark</span>
           </a>
@@ -52,7 +78,7 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="subject_tec_timetable.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name"> timetable</span>
           </a>
@@ -67,7 +93,7 @@ $var = $_SESSION['email'];
        
         
         <li>
-          <a href="#">
+          <a href="changepass.php">
             <i class='bx bx-user' ></i>
             <span class="links_name">Settings</span>
           </a>
@@ -81,79 +107,55 @@ $var = $_SESSION['email'];
       </ul>
   </div>
   <section class="home-section">
-    <nav>
-      <div class="sidebar-button">
-        <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
-      </div>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search...">
-        <i class='bx bx-search' ></i>
-      </div>
-     
-    </nav>
+   
 
+  <br><br>
+<div class="container">
+<div class="row">
+<div class="col-sm-8">
+<center><br><center><h1>Change Password</h1>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6 col-sm-offset-2">
 
-
-
-
-
-
-<?php
-include('connect.php');
-
-
-
-if (isset($_POST["submit"]))
-{
-    $id=$_POST['sid'];
-    $mar=$_POST['marks'];
-    $d=$_POST['mtype'];
-    $sql=mysqli_query($conn,"UPDATE mark set `mark`='$mar' where `sid`='$id'");
-    header('addmark.php');
-}
-
-  ?>
-
-<link rel="stylesheet" href="timetable.css"> 
-
-<div class="container"> 
-
-  <form id="contact" action="" method="post">
- 
-  <h2>mark Details</h2>
-  <?php
-  include('connect.php');
-  $id=$_GET['id'];
-  $uid=$_GET['uid'];
-  $sql=mysqli_query($conn,"SELECT * from mark where `sid`='$id' and `mid`='$uid'");
-  while($row=mysqli_fetch_array($sql))
-  {
-    ?>
-  <input type="hidden" name="id" value="<?php echo $row['id'];?>">
-    <!-- <fieldset>
-       <h4><b> Subject</b></h4>
-    <input type="text" name="sid" id="" value="<//?php echo $row['sid'];?>" readonly>
-    
-</fieldset> -->
-    <fieldset> <h4><b> Mark</b></h4>
-    <input type="text" name="marks" id="" value="<?php echo $row['mark'];?>">
-<br> <h4><b> Mark of</b></h4>
-  <input type="text" id="" name="mtype" value="<?php echo $row['mtype'];?>" readonly>
- 
- <?php 
-  }
-  ?>
+<!-- <form method="post" id="passwordForm" action='#'> -->
+<form action="#" method="post">
+<input type="password" class="input-lg form-control" name="password1" id="password1" placeholder="New Password" autocomplete="off">
  <br>
-  <button name="submit" type="submit" id="submitForm" onclick="a()" name="submit" data-submit="...Sending">Update</button>
-<script>
-    function a(){
-        alert("Update Sucessfully");
-    }
-    </script>
-</select> 
-</fieldset>
+<input type="password" class="input-lg form-control" name="password2" id="password2" placeholder="Repeat Password" autocomplete="off">
+ <br>
+<input type="submit" class="col-xs-12 btn btn-primary btn-load btn-lg" name="submit" id="submit" data-loading-text="Changing Password..." value="Change Password">
+<!-- <button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button> -->
+</form>
+</div><!--/col-sm-6-->
+</div><!--/row-->
 </div>
 
+
+
+  </section>
+
+
+
+</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

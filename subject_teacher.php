@@ -65,10 +65,10 @@ $var = $_SESSION['email'];
             <span class="links_name">cource Material</span>
           </a>
         </li>
-       
+      
         
         <li>
-          <a href="#">
+          <a href="  changepass.php">
             <i class='bx bx-user' ></i>
             <span class="links_name">Settings</span>
           </a>

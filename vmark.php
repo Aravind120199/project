@@ -97,11 +97,11 @@ else{
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-m-plus-plus'></i>
-      <span class="logo_name">Teacher</span>
+      <span class="logo_name">Student</span>
     </div>
     <ul class="nav-links">
         <li>
-          <a href="" class="active">
+          <a href="student.php" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Home</span>
           </a>
@@ -143,14 +143,15 @@ else{
             <span class="links_name">feedback</span>
           </a>
         </li>
-        
-         
         <li>
-          <a href="payfees.php">
-            <i class='bx bx-user' ></i>
-            <span class="links_name">Fees</span>
+          <a href="schedule list">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">Calender</span>
           </a>
         </li>
+        
+         
+       
         <li>
           <a href="#">
             <i class='bx bx-user' ></i>
