@@ -34,6 +34,13 @@ $var = $_SESSION['email'];
           </a>
         </li>
         <li>
+          <a href="payfee.php">
+            <i class='bx bx-box' ></i>
+            <span class="links_name">subjects</span>
+          </a>
+        </li>
+
+        <li>
           <a href="view_teacher_details.php">
             <i class='bx bx-box' ></i>
             <span class="links_name">Teacher</span>

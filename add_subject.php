@@ -102,7 +102,9 @@ if (isset($_POST["submit"]))
     $batch=$_POST['batch'];
     $subject=$_POST['subject'];
     $teacher=$_POST['teacher'];
-      mysqli_query($conn, "INSERT INTO `subject`( `batch`, `subject`, `teacher`) VALUES ('$batch','$subject','$teacher')");
+    $month=$_POST['month'];
+    $fees=$_POST['fees'];
+      mysqli_query($conn, "INSERT INTO `subject`( `batch`, `subject`, `teacher`,`month`,`fees`) VALUES ('$batch','$subject','$teacher','$month','$fees')");
  
     }
   ?>
@@ -113,7 +115,7 @@ if (isset($_POST["submit"]))
 
   <form id="contact" action="" method="post">
  
-  <h2>Add subject</h2>
+  <h2>Add subject</h2> 
   
     <fieldset>
     <select name="batch" id="batch" name="batch" required>
@@ -154,7 +156,36 @@ if (isset($_POST["submit"]))
   ?>
     </select> 
     
+ </fieldset> <fieldset>
+    <select name="month" id="month" name="month" required>
+    <option value="sel">Select Month</option>
+  <option value="January">January</option>
+  <option value="February">February</option>
+  <option value="March">March</option>
+  <option value="April">April</option>
+  <option value="May">May</option>
+  <option value="June">June</option>
+  <option value="July">July</option>
+  <option value="August">August</option>
+  <option value="September">September</option>
+  <option value="October">October</option>
+  <option value="November">November</option>
+  <option value="December">December</option>
+
+
+
+  
+
+</select> 
+
+   
+    </fieldset>
+
  </fieldset>
+
+    <fieldset>
+     <input placeholder="fees" type="text"  name="fees"id="fees" required>
+     </fieldset>
 
 <fieldset>
       <button name="submit" type="submit" id="submit" name="submit" onsubmit="alert('register successfully')"data-submit="...Sending">Submit</button>

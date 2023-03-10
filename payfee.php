@@ -1,7 +1,12 @@
+ 
 <?php
-include('session.php');
+
 include('connect.php');
+session_start();
+
 ?>
+
+
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
@@ -9,110 +14,80 @@ include('connect.php');
     <meta charset="UTF-8">
     
     <link rel="stylesheet" href="dashbord.css">
-  
+ 
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-     
- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
- <script type="text/javascript">
- google.load("visualization", "1", {packages:["corechart"]});
- google.setOnLoadCallback(drawChart);
- function drawChart() {
- var data = google.visualization.arrayToDataTable([
-
- ['Gender','Number'],
- <?php 
-      $query = "SELECT count(batch) AS number, batch FROM reguser GROUP BY batch";
-
-       $exec = mysqli_query($conn,$query);
-       while($row = mysqli_fetch_array($exec)){
-
-       echo "['".$row['batch']."',".$row['number']."],";
-       }
-       ?> 
- 
- ]);
-
- var options = {
- title: 'Total Students',
-  pieHole: 0,
-          pieSliceTextStyle: {
-            color: 'black',
-          },
-          legend: 'none'
- };
- var chart = new google.visualization.PieChart(document.getElementById("columnchart12"));
- chart.draw(data,options);
- }
-  
-    </script>
-
    </head>
 <body>
   <div class="sidebar">
     <div class="logo-details">
       <i class='bx bxl-m-plus-plus'></i>
-      <span class="logo_name">Admin</span>
+      <span class="logo_name">student</span>
     </div>
       <ul class="nav-links">
         <li>
-          <a href="admin.php" class="active">
+          <a href="student.php" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Home</span>
           </a>
         </li>
         <li>
-          <a href="viewtech.php">
+          <a href="">
+            <i class='bx bx-box' ></i>
+            <span class="links_name">subjects</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="">
             <i class='bx bx-box' ></i>
             <span class="links_name">Teacher</span>
           </a>
         </li>
-        <li>
-          <a href="addteacher.php">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Add New Teacher</span>
-          </a>
-        </li>
-        <li>
-          <a href="add_subject.php">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">subject</span>
-          </a>
-        </li>
-        <li>
-          <a href="viewstu.php">
-            <i class='bx bx-pie-chart-alt-2' ></i>
-            <span class="links_name">Student</span>
-          </a>
-        </li>
-        <li>
-          <a href="teacher_leave_status.php">
-            <i class='bx bx-pie-chart-alt-2' ></i>
-            <span class="links_name">teacher leave</span>
-          </a>
-        </li>
         
         <li>
-          <a href="timetable.php">
+          <a href="upload/downloads.php">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">cource material</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <i class='bx bx-pie-chart-alt-2' ></i>
+            <span class="links_name">mark</span>
+          </a>
+        </li>
+        <li>
+          <a href="leave.php">
             <i class='bx bx-coin-stack' ></i>
-            <span class="links_name">timetable</span>
+            <span class="links_name">leave</span>
           </a>
         </li>
-        
         <li>
-          <a href="schedule">
+          <a href=".php">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">Time table</span>
+          </a>
+        </li>
+        <li>
+          <a href="feedback.php">
+            <i class='bx bx-coin-stack' ></i>
+            <span class="links_name">feedback</span>
+          </a>
+        </li>
+        <li>
+          <a href="shedule list">
             <i class='bx bx-coin-stack' ></i>
             <span class="links_name">Calender</span>
           </a>
         </li>
-      
-      
-      
+        
+        <li>
+          <a href="stu_changepass.php">
+            <i class='bx bx-user' ></i>
+            <span class="links_name">Settings</span>
+          </a>
+        </li>
         <li class="">
           <a href="logout.php">
             <i class='bx bx-log-out'></i>
@@ -126,7 +101,8 @@ include('connect.php');
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
         <span class="dashboard">Dashboard</span>
-      </div>
+
+</div>
       <div class="search-box">
         <input type="text" placeholder="Search...">
         <i class='bx bx-search' ></i>
@@ -135,62 +111,6 @@ include('connect.php');
     </nav>
 
     <div class="home-content">
-      <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Students</div>
-            <div class="number"><?php 
-                                    $job_query=mysqli_query($conn,"select * from reguser");
-                                    $count=mysqli_num_rows($job_query);
-                                    echo $count;
-                                    ?></div>
-            <div class="indicator">
-              
-             
-            </div>
-          </div>
-          <i class=''></i>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Teachers</div>
-            <div class="number"><?php 
-                                    $job_query=mysqli_query($conn,"select * from regteacher");
-                                    $count=mysqli_num_rows($job_query);
-                                    echo $count;
-                                    ?></div>
-            <div class="indicator">
-            
-            </div>
-          </div>
-          <i class='' ></i>
-        </div>
-        <div class="box">
-
-          <div class="right-side">
-            <div class="box-topic">Office</div>
-            <div class="number">1</div>
-            <div class="indicator">
-              
-            </div>
-          </div>
-          <i class='' ></i>
-        </div>
-    
-           
-            <div class="indicator">
-              
-            </div>
-
-    
-          </div>
-
-      <div class="sales-boxes">
-
-
-</div>
-
-<div class="home-content">
       
             <div class="indicator">
               
@@ -199,7 +119,6 @@ include('connect.php');
          
         </div>
       </div>
-     
 
 
         <body>  
@@ -210,7 +129,6 @@ include('connect.php');
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <style>
 body {
     color: #566787;
@@ -373,11 +291,6 @@ table.table .avatar {
     font-size: 13px;
 }
 </style>
-<div class="container-fluid">
- <div id="columnchart12" style="width: 100%; height: 500px;"></div>
- </div>
-
-
 <script>
 $(document).ready(function(){
 	$('[data-toggle="tooltip"]').tooltip();
@@ -391,124 +304,126 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-5">
-                        <h2>feedback<b>History</b></h2>
+                        <h2><b>Subjects</b></h2>
                     </div>
-                    <?php
- $sql = "SELECT feedback FROM feedback";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    // Output data of each row
-    $texts = array();
-    while($row = $result->fetch_assoc()) {
-        $texts[] = $row["feedback"];
-    }
-    $url = 'http://127.0.0.1:5000/sentiment';
-    $data = json_encode(array('texts' => $texts));
-    $options = array(
-        'http' => array(
-            'header'  => "Content-type: application/json\r\n",
-            'method'  => 'POST',
-            'content' => $data,
-        ),
-    );
-    $context  = stream_context_create($options);
-    $result = file_get_contents($url, false, $context);
-    $overall_sentiment = json_decode($result, true)['sentiment'];
-$neg=100 - ($overall_sentiment * 100);
-} else {
-    echo "No feedback data found in the database.";
-}
-?>
-
-
-&nbsp;<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: <?php echo abs($overall_sentiment) * 100; ?>%; background-color:green;">
-  </div>
-</div>
-<span>&nbsp;Positive &nbsp;<?php  echo abs($overall_sentiment) * 100;?> %</span>
-&nbsp;<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: <?php echo $neg; ?>%; background-color:red;">
-  </div>
-  </div>
-  <span>&nbsp;Negative&nbsp;<?php  echo $neg;?> %</span>
-
-
+                  
                 </div>
             </div>
             <table class="table table-striped table-hover">
             <thead>  
                           
             <tr>  
-              <th> first name:
-          
-          
-              <th>lastname</th>
-              <th>email id</th>
-              <th>batch</th>
-              <th>feedback</th>
-              
-            
-              
+       
+   
+              <th>Batch</th>
+              <th>Subject</th>
+              <th>Teacher</th>
+              <th>Month</th>
+              <th>Fees</th>
+              <th>Pay fees</th>
+              <th>Status</th>
+             
+               
 
-            </tr>  
-            </thead>  
-            
+            </tr> 
+             
+            </thead> 
 
 <?php  
-include("connect.php"); 
-
-$view_users_query="SELECT * FROM `feedback`";//select query for viewing users.  
+include("connect.php");
+$var=$_SESSION['email'];
+$batch=mysqli_fetch_assoc(mysqli_query($conn,"select batch from reguser where Email_id='$var'" ));
+$batchdata=$batch['batch'];
+$view_users_query="select * from subject where batch='$batchdata '";//select query for viewing users.  
 $run=mysqli_query($conn,$view_users_query);//here run the sql query.  
 
 while($row=mysqli_fetch_array($run))//while look to fetch the result and store in a array $row.  
 {  
+$id=$row['id']; 
+$batch=$row['batch'];  
+$subject=$row['subject'];
+$teacher=$row['teacher'];
+$month=$row['month'];  
+$fees=$row['fees'];
+  
 
-
- 
-$u=$row['name'];
-$m=$row['lastname'];  
-$s=$row['email']; 
-$g=$row['batch']; 
-$a=$row['feedback']; 
+  
 
 
 ?>  
-
+<tbody>
 <tr>  
 <!--here showing results in the table -->  
 
+<td><?php echo $batch;  ?></td>  
+<td><?php echo $subject;  ?></td>  
+<td><?php echo $teacher;  ?></td> 
+<td><?php echo $month;  ?></td>
+<td><?php echo $fees;  ?></td> 
+
+<?php
+$apiKey="rzp_test_ZQ15zxuItoOUj8";
+?>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
  
-
-<td><?php echo $u;  ?></td>  
-<td><?php echo $m;  ?></td> 
-<td><?php echo $s;  ?></td> 
-<td><?php echo $g;  ?></td> 
-<td><?php echo $a;  ?></td> 
-
-
-
-
-
-
-
-
-
+<?php if($row['status']==0){?>
+    <td>
+    <form action="" method="POST">
+    <script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="<?php echo $apiKey; ?>" // Enter the Test API Key ID generated from Dashboard → Settings → API Keys
+    data-amount="<?php echo $fees  * 100;?>" // Amount is in currency subunits. Hence, 29935 refers to 29935 paise or ₹299.35.
+    data-currency="INR"// You can accept international payments by changing the currency code. Contact our Support Team to enable International for your account
+    data-id="order_CgmcjRh9ti2lP7"// Replace with the order_id generated by you in the backend.
+    data-buttontext="Click to pay"
+    data-name="Masters Tution"
+    data-description="Everything’s better with a bit of fragrance."
+    data-image="https://okcredit-blog-images-prod.storage.googleapis.com/2020/12/coaching.jpg"
+    data-prefill.name="Minu Joe"
+    data-prefill.email=""
+    data-theme.color="#1575ad"
+></script>
+<input type="hidden" custom="Hidden Element" name="hidden" class="btn btn-primary">
+</form> 
 
 </td>
-</tr>  
+<?php } else{ ?>
+    <td>Paid</td> 
 
+    <?php } ?>
+
+    <td><a class = "btn" href="http://localhost/website/receipt.php?id=<?php echo $id;?>"  id="pdfButton" style="background-color:green; color:#ffff;"><b>View</b></a></td>
+
+
+
+
+
+<!--gateway end-->
+
+<style>
+    .razorpay-payment-button{
+        background-color: #0DCAF0;
+        color: white;
+        font-size: 18px;padding: 8px 10px;font-weight: bold;
+        border-radius: 12px; border: none;text-align: center; 
+    }
+</style>
+
+
+
+
+
+
+<!--<td><a href="delete.php?id=<//?php echo $rows['id'];?>"><button style="color:white; background-color:red; width:80px height:30px;">Delete</button></a></td>
+<td>-->
+
+</tr>
+</tbody>
 <?php } ?>  
-</div>
-<div>
-</div>
-</div>  
 
 </container>
-                   
-</div> 
-  </section>
-  
-
+</div>
+</div>  
 </body>
 </html>
-
